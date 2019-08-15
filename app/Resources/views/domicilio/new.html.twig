@@ -1,0 +1,54 @@
+{% extends '@STGTheme/Default/base.html.twig' %}
+{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_widget(form) }}
+{{ form_end(form) }} #}
+
+{% block content %}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="card bg-light mb-12">
+        <div class="card-header">Nuevo Domicilio</div>  
+
+
+        <div class="card-body">
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        {{ form_label(form.calle) }}
+                        {{ form_widget(form.calle, {'attr': {'class': form_errors(form.calle) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.calle) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form_label(form.numero) }}
+                        {{ form_widget(form.numero) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.numero) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form_label(form.piso) }}
+                        {{ form_widget(form.piso) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.piso) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form_label(form.dpto) }}
+                        {{ form_widget(form.dpto) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.dpto) }}
+                        </div>
+                    </div>
+                    <div>
+                        {{ form_widget(form.save) }}
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    {{form_end(form)}}
+{% endblock %}

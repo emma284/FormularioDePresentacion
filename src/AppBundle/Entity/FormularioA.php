@@ -37,7 +37,7 @@ class FormularioA
      *
      * @ORM\Column(name="resumenEjecutivo", type="string", length=3000)
      * @Assert\NotBlank(message="No puede dejar el resumen ejecutivo en blanco")
-     * @Assert\Length(min = 50, max = 3000, minMessage = "El resumen ejecutivo debe tener al menos 50 caracteres", maxMessage = "El resumen ejecutivo no puede excedes los 3000 caracteres")
+     * @Assert\Length(min = 1, max = 3000, minMessage = "El resumen ejecutivo no puede dejarse en blanco.", maxMessage = "El resumen ejecutivo no puede exceder los 3000 caracteres.")
      */
     private $resumenEjecutivo;
 

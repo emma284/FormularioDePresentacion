@@ -1,0 +1,48 @@
+{% extends '@STGTheme/Default/base.html.twig' %}
+{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_widget(form) }}
+{{ form_end(form) }} #}
+
+{% block content %}
+
+    
+    <div class="card bg-light mb-12">
+        <h1>Listado de Formularios A</h1>
+        
+        <div class="card-body">
+            <table class="table table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID de formulario</th>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for formulario in formularios %}
+                        <tr>
+                            <th scope="row">{{ formulario.id }}</th>
+                            <td>{{ formulario.domicilio.calle }}</td>
+                            <td>{{ formulario.domicilio.numero }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Ver</button>
+                                <button type="button" class="btn btn-link" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>
+                                <button type="button" class="btn btn-link">Eliminar</button>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th scope="row" colspan="5">No se encontraron resultados.</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+        
+    </div>
+{% endblock %}

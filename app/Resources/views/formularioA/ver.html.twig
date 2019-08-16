@@ -1,0 +1,72 @@
+{% extends '@STGTheme/Default/base.html.twig' %}
+{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_widget(form) }}
+{{ form_end(form) }} #}
+
+{% block content %}
+
+    
+    <div class="card bg-light mb-12">
+        <h1>Detalles de Formularios A - ID: {{ formulario.id }}</h1>
+        
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Resumen ejecutivo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>{{ formulario.resumenEjecutivo }}</th>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-striped">
+
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Piso</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ formulario.domicilio.calle }}</td>
+                        <td>{{ formulario.domicilio.numero }}</td>
+                        <td>{{ formulario.domicilio.piso }}</td>
+                    
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <table class="table table-striped">
+
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ formulario.domicilio.dpto }}</td>
+                        <td>{{ formulario.domicilio.telefono }}</td>
+                        <td>{{ formulario.domicilio.email }}</td>     
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        
+    </div>
+{% endblock %}

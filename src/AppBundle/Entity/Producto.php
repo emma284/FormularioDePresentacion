@@ -81,5 +81,206 @@ class Producto
     private $idplanta;
 
 
-}
 
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Producto
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set estadofisico
+     *
+     * @param string $estadofisico
+     *
+     * @return Producto
+     */
+    public function setEstadofisico($estadofisico)
+    {
+        $this->estadofisico = $estadofisico;
+
+        return $this;
+    }
+
+    /**
+     * Get estadofisico
+     *
+     * @return string
+     */
+    public function getEstadofisico()
+    {
+        return $this->estadofisico;
+    }
+
+    /**
+     * Set produccionanual
+     *
+     * @param float $produccionanual
+     *
+     * @return Producto
+     */
+    public function setProduccionanual($produccionanual)
+    {
+        $this->produccionanual = $produccionanual;
+
+        return $this;
+    }
+
+    /**
+     * Get produccionanual
+     *
+     * @return float
+     */
+    public function getProduccionanual()
+    {
+        return $this->produccionanual;
+    }
+
+    /**
+     * Set unidad
+     *
+     * @param string $unidad
+     *
+     * @return Producto
+     */
+    public function setUnidad($unidad)
+    {
+        $this->unidad = $unidad;
+
+        return $this;
+    }
+
+    /**
+     * Get unidad
+     *
+     * @return string
+     */
+    public function getUnidad()
+    {
+        return $this->unidad;
+    }
+
+    /**
+     * Set almacenamiento
+     *
+     * @param string $almacenamiento
+     *
+     * @return Producto
+     */
+    public function setAlmacenamiento($almacenamiento)
+    {
+        $this->almacenamiento = $almacenamiento;
+
+        return $this;
+    }
+
+    /**
+     * Get almacenamiento
+     *
+     * @return string
+     */
+    public function getAlmacenamiento()
+    {
+        return $this->almacenamiento;
+    }
+
+    /**
+     * Set clasificacion
+     *
+     * @param string $clasificacion
+     *
+     * @return Producto
+     */
+    public function setClasificacion($clasificacion)
+    {
+        $this->clasificacion = $clasificacion;
+
+        return $this;
+    }
+
+    /**
+     * Get clasificacion
+     *
+     * @return string
+     */
+    public function getClasificacion()
+    {
+        return $this->clasificacion;
+    }
+
+    /**
+     * Set especificacion
+     *
+     * @param string $especificacion
+     *
+     * @return Producto
+     */
+    public function setEspecificacion($especificacion)
+    {
+        $this->especificacion = $especificacion;
+
+        return $this;
+    }
+
+    /**
+     * Get especificacion
+     *
+     * @return string
+     */
+    public function getEspecificacion()
+    {
+        return $this->especificacion;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idplanta
+     *
+     * @param \AppBundle\Entity\Planta $idplanta
+     *
+     * @return Producto
+     */
+    public function setIdplanta(\AppBundle\Entity\Planta $idplanta = null)
+    {
+        $this->idplanta = $idplanta;
+
+        return $this;
+    }
+
+    /**
+     * Get idplanta
+     *
+     * @return \AppBundle\Entity\Planta
+     */
+    public function getIdplanta()
+    {
+        return $this->idplanta;
+    }
+}

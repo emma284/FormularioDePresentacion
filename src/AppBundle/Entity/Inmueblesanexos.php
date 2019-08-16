@@ -46,5 +46,86 @@ class Inmueblesanexos
     private $idplanta;
 
 
-}
 
+    /**
+     * Set domicilio
+     *
+     * @param string $domicilio
+     *
+     * @return Inmueblesanexos
+     */
+    public function setDomicilio($domicilio)
+    {
+        $this->domicilio = $domicilio;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilio
+     *
+     * @return string
+     */
+    public function getDomicilio()
+    {
+        return $this->domicilio;
+    }
+
+    /**
+     * Set actividad
+     *
+     * @param string $actividad
+     *
+     * @return Inmueblesanexos
+     */
+    public function setActividad($actividad)
+    {
+        $this->actividad = $actividad;
+
+        return $this;
+    }
+
+    /**
+     * Get actividad
+     *
+     * @return string
+     */
+    public function getActividad()
+    {
+        return $this->actividad;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idplanta
+     *
+     * @param \AppBundle\Entity\Planta $idplanta
+     *
+     * @return Inmueblesanexos
+     */
+    public function setIdplanta(\AppBundle\Entity\Planta $idplanta = null)
+    {
+        $this->idplanta = $idplanta;
+
+        return $this;
+    }
+
+    /**
+     * Get idplanta
+     *
+     * @return \AppBundle\Entity\Planta
+     */
+    public function getIdplanta()
+    {
+        return $this->idplanta;
+    }
+}

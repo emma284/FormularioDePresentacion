@@ -67,5 +67,144 @@ class Actividad
         $this->idempresa = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-}
 
+    /**
+     * Set cuacm
+     *
+     * @param integer $cuacm
+     *
+     * @return Actividad
+     */
+    public function setCuacm($cuacm)
+    {
+        $this->cuacm = $cuacm;
+
+        return $this;
+    }
+
+    /**
+     * Get cuacm
+     *
+     * @return integer
+     */
+    public function getCuacm()
+    {
+        return $this->cuacm;
+    }
+
+    /**
+     * Set nombreactividad
+     *
+     * @param string $nombreactividad
+     *
+     * @return Actividad
+     */
+    public function setNombreactividad($nombreactividad)
+    {
+        $this->nombreactividad = $nombreactividad;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreactividad
+     *
+     * @return string
+     */
+    public function getNombreactividad()
+    {
+        return $this->nombreactividad;
+    }
+
+    /**
+     * Set estandar
+     *
+     * @param integer $estandar
+     *
+     * @return Actividad
+     */
+    public function setEstandar($estandar)
+    {
+        $this->estandar = $estandar;
+
+        return $this;
+    }
+
+    /**
+     * Get estandar
+     *
+     * @return integer
+     */
+    public function getEstandar()
+    {
+        return $this->estandar;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idgrupo
+     *
+     * @param \AppBundle\Entity\Grupoactividad $idgrupo
+     *
+     * @return Actividad
+     */
+    public function setIdgrupo(\AppBundle\Entity\Grupoactividad $idgrupo = null)
+    {
+        $this->idgrupo = $idgrupo;
+
+        return $this;
+    }
+
+    /**
+     * Get idgrupo
+     *
+     * @return \AppBundle\Entity\Grupoactividad
+     */
+    public function getIdgrupo()
+    {
+        return $this->idgrupo;
+    }
+
+    /**
+     * Add idempresa
+     *
+     * @param \AppBundle\Entity\Empresa $idempresa
+     *
+     * @return Actividad
+     */
+    public function addIdempresa(\AppBundle\Entity\Empresa $idempresa)
+    {
+        $this->idempresa[] = $idempresa;
+
+        return $this;
+    }
+
+    /**
+     * Remove idempresa
+     *
+     * @param \AppBundle\Entity\Empresa $idempresa
+     */
+    public function removeIdempresa(\AppBundle\Entity\Empresa $idempresa)
+    {
+        $this->idempresa->removeElement($idempresa);
+    }
+
+    /**
+     * Get idempresa
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdempresa()
+    {
+        return $this->idempresa;
+    }
+}

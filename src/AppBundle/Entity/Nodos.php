@@ -29,5 +29,38 @@ class Nodos
     private $id;
 
 
-}
 
+    /**
+     * Set nombrenodo
+     *
+     * @param string $nombrenodo
+     *
+     * @return Nodos
+     */
+    public function setNombrenodo($nombrenodo)
+    {
+        $this->nombrenodo = $nombrenodo;
+
+        return $this;
+    }
+
+    /**
+     * Get nombrenodo
+     *
+     * @return string
+     */
+    public function getNombrenodo()
+    {
+        return $this->nombrenodo;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

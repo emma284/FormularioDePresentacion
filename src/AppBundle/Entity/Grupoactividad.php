@@ -29,5 +29,38 @@ class Grupoactividad
     private $id;
 
 
-}
 
+    /**
+     * Set nombregrupo
+     *
+     * @param string $nombregrupo
+     *
+     * @return Grupoactividad
+     */
+    public function setNombregrupo($nombregrupo)
+    {
+        $this->nombregrupo = $nombregrupo;
+
+        return $this;
+    }
+
+    /**
+     * Get nombregrupo
+     *
+     * @return string
+     */
+    public function getNombregrupo()
+    {
+        return $this->nombregrupo;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

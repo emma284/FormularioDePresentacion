@@ -67,5 +67,158 @@ class Insumo
     private $idplanta;
 
 
-}
 
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Insumo
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set estadofisico
+     *
+     * @param string $estadofisico
+     *
+     * @return Insumo
+     */
+    public function setEstadofisico($estadofisico)
+    {
+        $this->estadofisico = $estadofisico;
+
+        return $this;
+    }
+
+    /**
+     * Get estadofisico
+     *
+     * @return string
+     */
+    public function getEstadofisico()
+    {
+        return $this->estadofisico;
+    }
+
+    /**
+     * Set consumoanual
+     *
+     * @param float $consumoanual
+     *
+     * @return Insumo
+     */
+    public function setConsumoanual($consumoanual)
+    {
+        $this->consumoanual = $consumoanual;
+
+        return $this;
+    }
+
+    /**
+     * Get consumoanual
+     *
+     * @return float
+     */
+    public function getConsumoanual()
+    {
+        return $this->consumoanual;
+    }
+
+    /**
+     * Set unidad
+     *
+     * @param string $unidad
+     *
+     * @return Insumo
+     */
+    public function setUnidad($unidad)
+    {
+        $this->unidad = $unidad;
+
+        return $this;
+    }
+
+    /**
+     * Get unidad
+     *
+     * @return string
+     */
+    public function getUnidad()
+    {
+        return $this->unidad;
+    }
+
+    /**
+     * Set almacenamiento
+     *
+     * @param string $almacenamiento
+     *
+     * @return Insumo
+     */
+    public function setAlmacenamiento($almacenamiento)
+    {
+        $this->almacenamiento = $almacenamiento;
+
+        return $this;
+    }
+
+    /**
+     * Get almacenamiento
+     *
+     * @return string
+     */
+    public function getAlmacenamiento()
+    {
+        return $this->almacenamiento;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idplanta
+     *
+     * @param \AppBundle\Entity\Planta $idplanta
+     *
+     * @return Insumo
+     */
+    public function setIdplanta(\AppBundle\Entity\Planta $idplanta = null)
+    {
+        $this->idplanta = $idplanta;
+
+        return $this;
+    }
+
+    /**
+     * Get idplanta
+     *
+     * @return \AppBundle\Entity\Planta
+     */
+    public function getIdplanta()
+    {
+        return $this->idplanta;
+    }
+}

@@ -67,5 +67,158 @@ class Representante
     private $idempresa;
 
 
-}
 
+    /**
+     * Set documento
+     *
+     * @param integer $documento
+     *
+     * @return Representante
+     */
+    public function setDocumento($documento)
+    {
+        $this->documento = $documento;
+
+        return $this;
+    }
+
+    /**
+     * Get documento
+     *
+     * @return integer
+     */
+    public function getDocumento()
+    {
+        return $this->documento;
+    }
+
+    /**
+     * Set apellido
+     *
+     * @param string $apellido
+     *
+     * @return Representante
+     */
+    public function setApellido($apellido)
+    {
+        $this->apellido = $apellido;
+
+        return $this;
+    }
+
+    /**
+     * Get apellido
+     *
+     * @return string
+     */
+    public function getApellido()
+    {
+        return $this->apellido;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Representante
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set cargo
+     *
+     * @param string $cargo
+     *
+     * @return Representante
+     */
+    public function setCargo($cargo)
+    {
+        $this->cargo = $cargo;
+
+        return $this;
+    }
+
+    /**
+     * Get cargo
+     *
+     * @return string
+     */
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    /**
+     * Set tipo
+     *
+     * @param string $tipo
+     *
+     * @return Representante
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return string
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idempresa
+     *
+     * @param \AppBundle\Entity\Empresa $idempresa
+     *
+     * @return Representante
+     */
+    public function setIdempresa(\AppBundle\Entity\Empresa $idempresa = null)
+    {
+        $this->idempresa = $idempresa;
+
+        return $this;
+    }
+
+    /**
+     * Get idempresa
+     *
+     * @return \AppBundle\Entity\Empresa
+     */
+    public function getIdempresa()
+    {
+        return $this->idempresa;
+    }
+}

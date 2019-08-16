@@ -29,5 +29,38 @@ class Departamentos
     private $id;
 
 
-}
 
+    /**
+     * Set nombredepartamento
+     *
+     * @param string $nombredepartamento
+     *
+     * @return Departamentos
+     */
+    public function setNombredepartamento($nombredepartamento)
+    {
+        $this->nombredepartamento = $nombredepartamento;
+
+        return $this;
+    }
+
+    /**
+     * Get nombredepartamento
+     *
+     * @return string
+     */
+    public function getNombredepartamento()
+    {
+        return $this->nombredepartamento;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

@@ -43,5 +43,86 @@ class Partidainmobiliaria
     private $id;
 
 
-}
 
+    /**
+     * Set nropartida
+     *
+     * @param string $nropartida
+     *
+     * @return Partidainmobiliaria
+     */
+    public function setNropartida($nropartida)
+    {
+        $this->nropartida = $nropartida;
+
+        return $this;
+    }
+
+    /**
+     * Get nropartida
+     *
+     * @return string
+     */
+    public function getNropartida()
+    {
+        return $this->nropartida;
+    }
+
+    /**
+     * Set latitud
+     *
+     * @param string $latitud
+     *
+     * @return Partidainmobiliaria
+     */
+    public function setLatitud($latitud)
+    {
+        $this->latitud = $latitud;
+
+        return $this;
+    }
+
+    /**
+     * Get latitud
+     *
+     * @return string
+     */
+    public function getLatitud()
+    {
+        return $this->latitud;
+    }
+
+    /**
+     * Set longitud
+     *
+     * @param string $longitud
+     *
+     * @return Partidainmobiliaria
+     */
+    public function setLongitud($longitud)
+    {
+        $this->longitud = $longitud;
+
+        return $this;
+    }
+
+    /**
+     * Get longitud
+     *
+     * @return string
+     */
+    public function getLongitud()
+    {
+        return $this->longitud;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

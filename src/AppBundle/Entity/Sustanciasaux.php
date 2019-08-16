@@ -60,5 +60,134 @@ class Sustanciasaux
     private $idplanta;
 
 
-}
 
+    /**
+     * Set combustiblesliquidos
+     *
+     * @param boolean $combustiblesliquidos
+     *
+     * @return Sustanciasaux
+     */
+    public function setCombustiblesliquidos($combustiblesliquidos)
+    {
+        $this->combustiblesliquidos = $combustiblesliquidos;
+
+        return $this;
+    }
+
+    /**
+     * Get combustiblesliquidos
+     *
+     * @return boolean
+     */
+    public function getCombustiblesliquidos()
+    {
+        return $this->combustiblesliquidos;
+    }
+
+    /**
+     * Set airecomprimido
+     *
+     * @param boolean $airecomprimido
+     *
+     * @return Sustanciasaux
+     */
+    public function setAirecomprimido($airecomprimido)
+    {
+        $this->airecomprimido = $airecomprimido;
+
+        return $this;
+    }
+
+    /**
+     * Get airecomprimido
+     *
+     * @return boolean
+     */
+    public function getAirecomprimido()
+    {
+        return $this->airecomprimido;
+    }
+
+    /**
+     * Set gasnatural
+     *
+     * @param boolean $gasnatural
+     *
+     * @return Sustanciasaux
+     */
+    public function setGasnatural($gasnatural)
+    {
+        $this->gasnatural = $gasnatural;
+
+        return $this;
+    }
+
+    /**
+     * Get gasnatural
+     *
+     * @return boolean
+     */
+    public function getGasnatural()
+    {
+        return $this->gasnatural;
+    }
+
+    /**
+     * Set aceitesylubricantes
+     *
+     * @param boolean $aceitesylubricantes
+     *
+     * @return Sustanciasaux
+     */
+    public function setAceitesylubricantes($aceitesylubricantes)
+    {
+        $this->aceitesylubricantes = $aceitesylubricantes;
+
+        return $this;
+    }
+
+    /**
+     * Get aceitesylubricantes
+     *
+     * @return boolean
+     */
+    public function getAceitesylubricantes()
+    {
+        return $this->aceitesylubricantes;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idplanta
+     *
+     * @param \AppBundle\Entity\Planta $idplanta
+     *
+     * @return Sustanciasaux
+     */
+    public function setIdplanta(\AppBundle\Entity\Planta $idplanta = null)
+    {
+        $this->idplanta = $idplanta;
+
+        return $this;
+    }
+
+    /**
+     * Get idplanta
+     *
+     * @return \AppBundle\Entity\Planta
+     */
+    public function getIdplanta()
+    {
+        return $this->idplanta;
+    }
+}

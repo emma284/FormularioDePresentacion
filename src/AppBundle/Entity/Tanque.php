@@ -53,5 +53,110 @@ class Tanque
     private $idplanta;
 
 
-}
 
+    /**
+     * Set cantidad
+     *
+     * @param integer $cantidad
+     *
+     * @return Tanque
+     */
+    public function setCantidad($cantidad)
+    {
+        $this->cantidad = $cantidad;
+
+        return $this;
+    }
+
+    /**
+     * Get cantidad
+     *
+     * @return integer
+     */
+    public function getCantidad()
+    {
+        return $this->cantidad;
+    }
+
+    /**
+     * Set capacidadtotal
+     *
+     * @param float $capacidadtotal
+     *
+     * @return Tanque
+     */
+    public function setCapacidadtotal($capacidadtotal)
+    {
+        $this->capacidadtotal = $capacidadtotal;
+
+        return $this;
+    }
+
+    /**
+     * Get capacidadtotal
+     *
+     * @return float
+     */
+    public function getCapacidadtotal()
+    {
+        return $this->capacidadtotal;
+    }
+
+    /**
+     * Set unidad
+     *
+     * @param string $unidad
+     *
+     * @return Tanque
+     */
+    public function setUnidad($unidad)
+    {
+        $this->unidad = $unidad;
+
+        return $this;
+    }
+
+    /**
+     * Get unidad
+     *
+     * @return string
+     */
+    public function getUnidad()
+    {
+        return $this->unidad;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idplanta
+     *
+     * @param \AppBundle\Entity\Planta $idplanta
+     *
+     * @return Tanque
+     */
+    public function setIdplanta(\AppBundle\Entity\Planta $idplanta = null)
+    {
+        $this->idplanta = $idplanta;
+
+        return $this;
+    }
+
+    /**
+     * Get idplanta
+     *
+     * @return \AppBundle\Entity\Planta
+     */
+    public function getIdplanta()
+    {
+        return $this->idplanta;
+    }
+}

@@ -47,4 +47,52 @@ use Symfony\Component\HttpFoundation\Request;
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/formulario/listado/", name="listar_formularios")
+     */
+    public function formularioAListarAction(Request $request){
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $formularios = $entityManager
+                    ->getRepository(FormularioA::class)
+                    ->findAll();
+        
+        return $this->render('formularioA/listar.html.twig', array(
+            'formularios' => $formularios));
+    }
+
+    /**
+     * @Route("/formulario/ver/{id}", name="formulario_ver")
+     */
+    public function formularioAVerAction(Request $request, $id){
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $formulario = $entityManager
+                    ->getRepository(FormularioA::class)
+                    ->find($id);
+        
+        return $this->render('formularioA/ver.html.twig', array(
+            'formulario' => $formulario));
+    }
+
+    /**
+     * @Route("/formulario/modificar/{id}", name="formulario_modificar")
+     */
+    public function formularioAModificarAction(Request $request, $id){
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $formulario = $entityManager
+                    ->getRepository(FormularioA::class)
+                    ->find($id);
+
+        if(!$formulario) {
+            throw $this->createNotFoundException(
+                "No se ha encontrado el formulario de id: " . $id
+            );
+        }
+        
+        return $this->render('formularioA/modificar.html.twig', array(
+            'formulario' => $formulario));
+    }
 }

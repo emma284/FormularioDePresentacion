@@ -6,6 +6,7 @@
             <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Repository/DomicilioRepository.php</file>
             <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Controller/DomicilioController.php</file>
             <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Entity/Domicilio.php</file>
+            <file>file:/C:/xampp/htdocs/proyecto001/app/Resources/views/formularioA/listar.html.twig</file>
             <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Entity/FormularioA.php</file>
         </group>
     </open-files>

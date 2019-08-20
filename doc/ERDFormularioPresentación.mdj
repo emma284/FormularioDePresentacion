@@ -6666,8 +6666,8 @@
 								"$ref": "AAAAAAFpcjTQNWmqIbw="
 							},
 							"name": "idLocalidad",
-							"type": "int",
-							"length": 0,
+							"type": "varchar",
+							"length": "50",
 							"foreignKey": true,
 							"referenceTo": {
 								"$ref": "AAAAAAFsiz8dek4YXyE="

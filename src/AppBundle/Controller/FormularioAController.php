@@ -41,6 +41,8 @@ use Symfony\Component\HttpFoundation\Request;
             
             $entityManager->persist($formularioA);
             $entityManager->flush();
+            
+            return $this->redirectToRoute('listar_formularios');
 
         }
         return $this->render('formularioA/new.html.twig',[

@@ -29,8 +29,8 @@
                             <td>{{ formulario.domicilio.numero }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Ver</button>
-                                <button type="button" class="btn btn-link" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>
-                                <button type="button" class="btn btn-link">Eliminar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>
+                                <button type="button" class="btn btn-primary">Eliminar</button>
                             </td>
                         </tr>
                     {% else %}

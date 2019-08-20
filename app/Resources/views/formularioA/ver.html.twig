@@ -23,6 +23,22 @@
                     </tr>
                 </tbody>
             </table>
+                    
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Zonificacion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>{{ formulario.domicilio.tipo }}</th>
+                        <th>{{ formulario.domicilio.zonificacion }}</th>
+                    </tr>
+                </tbody>
+            </table>
 
 
             <table class="table table-striped">
@@ -58,7 +74,7 @@
 
                 <tbody>
                     <tr>
-                        <td>{{ formulario.domicilio.dpto }}</td>
+                        <td>{{ formulario.domicilio.depto }}</td>
                         <td>{{ formulario.domicilio.telefono }}</td>
                         <td>{{ formulario.domicilio.email }}</td>     
                     </tr>
@@ -66,7 +82,7 @@
 
             </table>
             <div>
-                <button type="button" class="btn btn-link" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>
             </div>
         </div>
         

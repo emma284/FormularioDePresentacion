@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Repository/DomicilioRepository.php</file>
-            <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Controller/DomicilioController.php</file>
-            <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Entity/Domicilio.php</file>
-            <file>file:/C:/xampp/htdocs/proyecto001/app/Resources/views/formularioA/listar.html.twig</file>
-            <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Entity/FormularioA.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/listar.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/DomicilioType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Efluente.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/FormularioA.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/DomicilioController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/FormularioAController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Domicilio.php</file>
         </group>
     </open-files>
 </project-private>

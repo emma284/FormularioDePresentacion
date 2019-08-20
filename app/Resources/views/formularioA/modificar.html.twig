@@ -11,69 +11,69 @@
 
 
         <div class="card-body">
-                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_start(formulario, {'attr': {'novalidate': 'novalidate'}}) }}
            
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        {{ form_label(form.resumenEjecutivo) }}
-                        {{ form_widget(form.resumenEjecutivo, {'attr': {'class': form_errors(form.resumenEjecutivo) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.resumenEjecutivo) }}
+                        {{ form_widget(formulario.resumenEjecutivo, {'attr': {'class': form_errors(formulario.resumenEjecutivo) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.resumenEjecutivo) }}
+                            {{ form_errors(formulario.resumenEjecutivo) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.calle) }}
-                        {{ form_widget(form.domicilio.calle, {'attr': {'class': form_errors(form.domicilio.calle) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.calle) }}
+                        {{ form_widget(formulario.domicilio.calle, {'attr': {'class': form_errors(formulario.domicilio.calle) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.calle) }}
+                            {{ form_errors(formulario.domicilio.calle) }}
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.numero) }}
-                        {{ form_widget(form.domicilio.numero, {'attr': {'class': form_errors(form.domicilio.numero) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.numero) }}
+                        {{ form_widget(formulario.domicilio.numero, {'attr': {'class': form_errors(formulario.domicilio.numero) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.numero) }}
+                            {{ form_errors(formulario.domicilio.numero) }}
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.piso) }}
-                        {{ form_widget(form.domicilio.piso, {'attr': {'class': form_errors(form.domicilio.piso) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.piso) }}
+                        {{ form_widget(formulario.domicilio.piso, {'attr': {'class': form_errors(formulario.domicilio.piso) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.piso) }}
+                            {{ form_errors(formulario.domicilio.piso) }}
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.dpto) }}
-                        {{ form_widget(form.domicilio.dpto, {'attr': {'class': form_errors(form.domicilio.dpto) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.dpto) }}
+                        {{ form_widget(formulario.domicilio.dpto, {'attr': {'class': form_errors(formulario.domicilio.dpto) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.dpto) }}
+                            {{ form_errors(formulario.domicilio.dpto) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.telefono) }}
-                        {{ form_widget(form.domicilio.telefono, {'attr': {'class': form_errors(form.domicilio.telefono) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.telefono) }}
+                        {{ form_widget(formulario.domicilio.telefono, {'attr': {'class': form_errors(formulario.domicilio.telefono) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.telefono) }}
+                            {{ form_errors(formulario.domicilio.telefono) }}
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.email) }}
-                        {{ form_widget(form.domicilio.email, {'attr': {'class': form_errors(form.domicilio.email) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(formulario.domicilio.email) }}
+                        {{ form_widget(formulario.domicilio.email, {'attr': {'class': form_errors(formulario.domicilio.email) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.email) }}
+                            {{ form_errors(formulario.domicilio.email) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div>
-                        {{ form_widget(form.save) }}
+                        {{ form_widget(formulario.save) }}
                     </div>
                 </div>
-                {{form_end(form)}}
+                {{form_end(formulario)}}
         </div>
     </div>
 {% endblock %}

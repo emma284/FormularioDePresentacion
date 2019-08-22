@@ -64,7 +64,7 @@ class Domicilio
     /**
      * @var string
      *
-     * @ORM\Column(name="zonificacion", type="string", length=50, nullable=false)
+     * @ORM\Column(name="zonificacion", type="string", length=50, nullable=true)
      */
     private $zonificacion;
 
@@ -80,12 +80,12 @@ class Domicilio
     /**
      * @var \AppBundle\Entity\Empresa
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Empresa")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Empresa", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
      * })
      */
-    private $idempresa;
+    private $empresa;
 
     /**
      * @var \AppBundle\Entity\Planta
@@ -328,9 +328,9 @@ class Domicilio
      *
      * @return Domicilio
      */
-    public function setIdempresa(\AppBundle\Entity\Empresa $idempresa = null)
+    public function setEmpresa(\AppBundle\Entity\Empresa $empresa)
     {
-        $this->idempresa = $idempresa;
+        $this->empresa = $empresa;
 
         return $this;
     }
@@ -340,9 +340,9 @@ class Domicilio
      *
      * @return \AppBundle\Entity\Empresa
      */
-    public function getIdempresa()
+    public function getEmpresa()
     {
-        return $this->idempresa;
+        return $this->empresa;
     }
 
     /**

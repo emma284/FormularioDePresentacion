@@ -1,16 +1,22 @@
+
+
 {% extends '@STGTheme/Default/base.html.twig' %}
 {# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 {{ form_widget(form) }}
 {{ form_end(form) }} #}
 
+
+
 {% block content %}
 
     
     <div class="card bg-light mb-12">
-        <h1>Formulario A</h1>
+        
 
 
         <div class="card-body">
+            <h1>Formulario A</h1>
+            <h1>Datos Identificatorios:</h1>
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
            
                 <div class="form-row">
@@ -24,13 +30,48 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        {{ form_label(form.domicilio.empresa.cuit) }}
+                        {{ form_widget(form.domicilio.empresa.cuit, {'attr': {'class': form_errors(form.domicilio.empresa.cuit) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.domicilio.empresa.cuit) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_label(form.domicilio.empresa.razonSocial) }}
+                        {{ form_widget(form.domicilio.empresa.razonSocial, {'attr': {'class': form_errors(form.domicilio.empresa.razonSocial) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.domicilio.empresa.razonSocial) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_label(form.domicilio.empresa.tipoPersona) }}
+                        {{ form_widget(form.domicilio.empresa.tipoPersona, {'attr': {'class': form_errors(form.domicilio.empresa.tipoPersona) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.domicilio.empresa.tipoPersona) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_label(form.domicilio.empresa.fechaInicioActividades) }}
+                        {{ form_widget(form.domicilio.empresa.fechaInicioActividades, {'attr': {'class': form_errors(form.domicilio.empresa.fechaInicioActividades) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.domicilio.empresa.fechaInicioActividades) }}
+                        </div>
+                    </div>
+                </div>
+                        <h1>Domicilio Legal:</h1>
+                        
+{#                <div class="form-row">
+                    <div class="form-group col-md-6">
                         {{ form_label(form.domicilio.tipo) }}
                         {{ form_widget(form.domicilio.tipo, {'attr': {'class': form_errors(form.domicilio.tipo) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
                             {{ form_errors(form.domicilio.tipo) }}
                         </div>
                     </div>
-                </div>
+                </div>#}
+
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         {{ form_label(form.domicilio.calle) }}
@@ -77,7 +118,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                
+                
+{#                <div class="form-row">
                     <div class="form-group col-md-6">
                         {{ form_label(form.domicilio.zonificacion) }}
                         {{ form_widget(form.domicilio.zonificacion, {'attr': {'class': form_errors(form.domicilio.zonificacion) ? 'form-control is-invalid' : 'form-control'}}) }}
@@ -85,11 +128,13 @@
                             {{ form_errors(form.domicilio.zonificacion) }}
                         </div>
                     </div>
-                </div>
+                </div>#}
+                
+            
                 <div class="form-row">
                     <div>
                         {#{{ form_widget(form.save) }}#}
-                        <button type="button" class="btn btn-primary" onclick={{ form_widget(form.save) }}</button>
+                        <button type="submit" class="btn btn-primary" formnovalidate>Guardar</button>
                     </div>
                     <div>&nbsp;</div>{# Espacio en blanco p/separar botones #}
                     <div>

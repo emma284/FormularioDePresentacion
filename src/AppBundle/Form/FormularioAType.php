@@ -21,7 +21,7 @@ class FormularioAType extends AbstractType
         $builder
             ->add('resumenEjecutivo', TextareaType::class, ['label' => 'Resumen ejecutivo: '])
             ->add('domicilio', DomicilioType::class, ['label' => 'Domicilio: '])
-            ->add('save', SubmitType::class, ['label' => 'Guardar'])
+//            ->add('save', SubmitType::class, ['label' => 'Guardar'])
             
         ;
     }

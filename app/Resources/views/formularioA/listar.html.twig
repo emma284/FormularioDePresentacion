@@ -15,8 +15,8 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID de formulario</th>
-                        <th scope="col">Calle</th>
-                        <th scope="col">Numero</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">CUIT</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -25,8 +25,8 @@
                     {% for formulario in formularios %}
                         <tr>
                             <th scope="row">{{ formulario.id }}</th>
-                            <td>{{ formulario.domicilio.calle }}</td>
-                            <td>{{ formulario.domicilio.numero }}</td>
+                            <td>{{ formulario.domicilio.empresa.razonSocial }}</td>
+                            <td>{{ formulario.domicilio.empresa.cuit }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Ver</button>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>

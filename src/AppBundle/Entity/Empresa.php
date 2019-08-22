@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Empresa
 {
     /**
-     * @var integer
+     * @var bigint
      *
-     * @ORM\Column(name="cuit", type="integer", nullable=false)
+     * @ORM\Column(name="cuit", type="bigint", nullable=false)
      */
     private $cuit;
 

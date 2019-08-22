@@ -7,9 +7,9 @@
 
     
     <div class="card bg-light mb-12">
-        <h1>Detalles de Formularios A - ID: {{ formulario.id }}</h1>
-        
+
         <div class="card-body">
+            <h1>Detalles de Formularios A - ID: {{ formulario.id }}</h1>
             <table class="table table-striped">
                 <thead class="thead-light">
                     <tr>
@@ -23,23 +23,29 @@
                     </tr>
                 </tbody>
             </table>
-                    
+                
+            <h1>Datos Identificatorios</h1>
             <table class="table table-striped">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Zonificacion</th>
+                        <th scope="col">Razon Social</th>
+                        <th scope="col">CUIT</th>
+                        <th scope="col">Fecha inicio actividades</th>
+                        <th scope="col">Tipo Persona</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <th>{{ formulario.domicilio.tipo }}</th>
-                        <th>{{ formulario.domicilio.zonificacion }}</th>
+                        <th>{{ formulario.domicilio.empresa.razonSocial }}</th>
+                        <th>{{ formulario.domicilio.empresa.cuit }}</th>
+                        <th>{{ formulario.domicilio.empresa.fechaInicioActividades|date('Y-m-d') }}</th>
+                        <th>{{ formulario.domicilio.empresa.tipoPersona }}</th>
                     </tr>
                 </tbody>
             </table>
-
+                    
+            <h1>Domicilio {{ formulario.domicilio.Tipo }}</h1>
 
             <table class="table table-striped">
 

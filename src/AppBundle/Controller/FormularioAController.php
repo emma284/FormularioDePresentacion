@@ -38,7 +38,7 @@ use Symfony\Component\HttpFoundation\Request;
         if($form->isSubmitted() && $form->isValid()){
 
             $formularioA = $form->getData();
-            
+            $formularioA->getDomicilio()->setTipo('Legal');
             $entityManager->persist($formularioA);
             $entityManager->flush();
             

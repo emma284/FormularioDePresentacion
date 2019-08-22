@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use AppBundle\Form\EmpresaType;
 
 class DomicilioType extends AbstractType
 {
@@ -22,22 +23,29 @@ class DomicilioType extends AbstractType
             ->add('piso', IntegerType::class, ['label' => 'Piso: '])
             ->add('depto', TextType::class, ['label' => 'Depto: '])
             ->add('telefono', TextType::class, ['label' => 'Teléfono: '])
-            ->add('zonificacion', ChoiceType::class, [
-                    'choices'  => [
-                        'Parque Industrial' => "Parque Industrial",
-                        'Industrial/Rural' => "Industrial/Rural",
-                        'Urbana' => "Urbana",
-                        'Otras Zonas' => "Otras Zonas",
-                    ],
-                ])
-            ->add('tipo', ChoiceType::class, [
-                    'choices'  => [
-                        'Real' => "Real",
-                        'Legal' => "Legal",
-                        'Constituido' => "Constituido",
-                    ],
-                ])
+            
+//            ->add('zonificacion', ChoiceType::class, [
+//                        'choices'  => [
+//                        'Parque Industrial' => "Parque Industrial",
+//                        'Industrial/Rural' => "Industrial/Rural",
+//                        'Urbana' => "Urbana",
+//                        'Otras Zonas' => "Otras Zonas",
+//                    ],
+//                ])    
+            
+//            ->add('tipo', ChoiceType::class, [
+//                    'choices'  => [
+//                        'Real' => "Real",
+//                        'Legal' => "Legal",
+//                        'Constituido' => "Constituido",
+//                    ],
+//                ])
+                
             ->add('email', EmailType::class, ['label' => 'Email: '])
+            
+            ->add('empresa', EmpresaType::class, ['label' => 'Domicilio: '])
+                
+
         ;
     }
 

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Domicilio
@@ -84,6 +85,8 @@ class Domicilio
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
      * })
+     * @Assert\Type(type="AppBundle\Entity\Empresa")
+     * @Assert\Valid
      */
     private $empresa;
 

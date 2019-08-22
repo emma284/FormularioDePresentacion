@@ -4,7 +4,11 @@
 {{ form_end(form) }} #}
 
 {% block content %}
-
+    {% for message in app.flashes('notice') %}
+        <div class='flash-notice'>
+            {{ message }}
+        </div>
+    {% endfor %}
     
     <div class="card bg-light mb-12">
         <h1>Listado de Formularios A</h1>
@@ -30,7 +34,7 @@
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Ver</button>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>
-                                <button type="button" class="btn btn-primary">Eliminar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_eliminar', {'id' : formulario.id }) }}'">Eliminar</button>
                             </td>
                         </tr>
                     {% else %}
@@ -49,4 +53,7 @@
         </div>
         
     </div>
+
+    
+
 {% endblock %}

@@ -58,7 +58,9 @@ use Symfony\Component\HttpFoundation\Request;
 
         $formularios = $entityManager
                     ->getRepository(FormularioA::class)
-                    ->findAll();
+                    ->findBy([
+                        'fechaBaja' => NULL
+                    ]);
         
         return $this->render('formularioA/listar.html.twig', array(
             'formularios' => $formularios));
@@ -78,23 +80,61 @@ use Symfony\Component\HttpFoundation\Request;
             'formulario' => $formulario));
     }
 
+
+
     /**
      * @Route("/formulario/modificar/{id}", name="formulario_modificar")
      */
-    public function formularioAModificarAction(Request $request, $id){
+    public function formularioAModificarAction(Request $request, $id)
+    {
+            
         $entityManager = $this->getDoctrine()->getManager();
 
         $formulario = $entityManager
-                    ->getRepository(FormularioA::class)
-                    ->find($id);
+            ->getRepository(FormularioA::class)
+            ->find($id);
 
-        if(!$formulario) {
-            throw $this->createNotFoundException(
-                "No se ha encontrado el formulario de id: " . $id
-            );
+        $form = $this->createForm(FormularioAType::class, $formulario);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $formulario = $form->getData();
+            $formulario->getDomicilio()->setTipo('Legal');
+//            $entityManager->persist($formulario);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('listar_formularios');
+
         }
-        
-        return $this->render('formularioA/modificar.html.twig', array(
-            'formulario' => $formulario));
+        return $this->render('formularioA/modificar.html.twig',[
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/formulario/eliminar/{id}", name="formulario_eliminar")
+     */
+    public function formularioAEliminarAction(Request $request, $id)
+    {
+            
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $formulario = $entityManager
+            ->getRepository(FormularioA::class)
+            ->find($id);
+
+       $formulario->setFechaBaja(new \DateTime());
+
+       $entityManager->flush();
+
+       $this->addFlash(
+           'notice',
+           'El formulario se borró exitosamente.'
+       );
+
+       return $this->redirectToRoute('listar_formularios');
     }
 }

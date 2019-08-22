@@ -31,7 +31,6 @@ class FormularioA
     private $domicilio;
 
 
-
     /**
      * @var string
      *
@@ -41,6 +40,12 @@ class FormularioA
      */
     private $resumenEjecutivo;
 
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * 
+     */
+    private $fechaBaja;
 
 /**
  * getters and setters
@@ -66,5 +71,13 @@ class FormularioA
 
     public function setDomicilio($domicilio) {
         $this->domicilio = $domicilio;
+    }
+    
+    function getFechaBaja() {
+        return $this->fechaBaja;
+    }
+
+    function setFechaBaja($fechaBaja) {
+        $this->fechaBaja = $fechaBaja;
     }
 }

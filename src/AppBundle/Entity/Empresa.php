@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Empresa
@@ -16,6 +17,7 @@ class Empresa
      * @var bigint
      *
      * @ORM\Column(name="cuit", type="bigint", nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $cuit;
 
@@ -23,13 +25,15 @@ class Empresa
      * @var string
      *
      * @ORM\Column(name="razonSocial", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
-    private $razonsocial;
+    private $razonSocial;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fechaInicioActividades", type="date", nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $fechainicioactividades;
 
@@ -37,6 +41,7 @@ class Empresa
      * @var integer
      *
      * @ORM\Column(name="tipoPersona", type="integer", nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $tipopersona;
 
@@ -114,9 +119,9 @@ class Empresa
      *
      * @return Empresa
      */
-    public function setRazonsocial($razonsocial)
+    public function setRazonsocial($razonSocial)
     {
-        $this->razonsocial = $razonsocial;
+        $this->razonSocial = $razonSocial;
 
         return $this;
     }
@@ -126,9 +131,9 @@ class Empresa
      *
      * @return string
      */
-    public function getRazonsocial()
+    public function getRazonSocial()
     {
-        return $this->razonsocial;
+        return $this->razonSocial;
     }
 
     /**

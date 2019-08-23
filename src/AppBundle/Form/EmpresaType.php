@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 
 class EmpresaType extends AbstractType
@@ -35,6 +36,14 @@ class EmpresaType extends AbstractType
             
                 
         ;
+        
+        $builder->add('representantes', CollectionType::class, [
+            'entry_type' => RepresentanteType::class,
+            'entry_options' => ['label' => false],
+            'allow_add' => true,
+            'by_reference' => false,
+            'allow_delete' => true,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

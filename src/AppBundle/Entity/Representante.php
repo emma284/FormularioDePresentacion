@@ -13,11 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Representante
 {
     /**
-     * @var integer
+     * @var bigint
      *
-     * @ORM\Column(name="documento", type="integer", nullable=false)
+     * @ORM\Column(name="dni", type="bigint", nullable=false)
      */
-    private $documento;
+    private $dni;
 
     /**
      * @var string
@@ -69,27 +69,27 @@ class Representante
 
 
     /**
-     * Set documento
+     * Set dni
      *
-     * @param integer $documento
+     * @param integer $dni
      *
      * @return Representante
      */
-    public function setDocumento($documento)
+    public function setDni($dni)
     {
-        $this->documento = $documento;
+        $this->dni = $dni;
 
         return $this;
     }
 
     /**
-     * Get documento
+     * Get dni
      *
      * @return integer
      */
-    public function getDocumento()
+    public function getDni()
     {
-        return $this->documento;
+        return $this->dni;
     }
 
     /**

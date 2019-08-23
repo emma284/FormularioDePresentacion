@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Empresa
@@ -13,6 +14,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Empresa
 {
+    protected $representantes;
+    
+    
     /**
      * @var bigint
      *
@@ -84,7 +88,29 @@ class Empresa
      */
     public function __construct()
     {
-        $this->idactividad = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idactividad = new ArrayCollection();
+        $this->representantes = new ArrayCollection();
+    }
+    
+    public function getRepresentantes()
+    {
+        return $this->representantes;
+    }
+    
+    public function addRepresentante(Representante $representante)
+    {
+        
+        
+        // for a many-to-one association:
+        $tag->setRepresentante($this);
+
+        $this->representantes->add($representante);
+        
+    }
+
+    public function removeRepresentante(Tag $representante)
+    {
+        $this->representantes->removeElement($representante);
     }
 
 

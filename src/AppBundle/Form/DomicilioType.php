@@ -43,7 +43,7 @@ class DomicilioType extends AbstractType
                 
             ->add('email', EmailType::class, ['label' => 'Email: '])
             
-            ->add('empresa', EmpresaType::class, ['label' => 'Domicilio: '])
+            ->add('empresa', EmpresaType::class, ['label' => 'Empresa: '])
                 
 
         ;

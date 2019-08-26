@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/proyecto001/src/AppBundle/Entity/FormularioA.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/EmpresaType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Representante.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/DomicilioType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/RepresentanteType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/FormularioAController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/STGThemeBundle/views/Default/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Empresa.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/FormularioAType.php</file>
         </group>
     </open-files>
 </project-private>

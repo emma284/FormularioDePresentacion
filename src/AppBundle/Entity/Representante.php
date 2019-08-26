@@ -205,7 +205,7 @@ class Representante
      *
      * @return Representante
      */
-    public function setIdempresa(\AppBundle\Entity\Empresa $idempresa = null)
+    public function setIdempresa(\AppBundle\Entity\Empresa $idempresa)
     {
         $this->idempresa = $idempresa;
 

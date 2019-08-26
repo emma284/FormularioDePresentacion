@@ -134,7 +134,7 @@
                 <ul class="representantes" data-prototype="{{ form_widget(form.domicilio.empresa.representantes.vars.prototype)|e('html_attr') }}">
                     {# iterate over each existing representante and render its only field: name #}
                     {% for representante in form.domicilio.empresa.representantes %}
-                        <li>{{ form_row(representante.nombre) }}</li>
+                        <li></li>
                     {% endfor %}
                 </ul>
                 
@@ -161,7 +161,7 @@
     var $collectionHolder;
 
     // setup an "add a Representante" link
-    var $addRepresentanteButton = $('<button type="button" class="add_representante_link">Añadir Representante</button>');
+    var $addRepresentanteButton = $('<button type="button" class="btn btn-primary">Añadir Representante</button>');
     var $newLinkLi = $('<li></li>').append($addRepresentanteButton);
 
     jQuery(document).ready(function() {
@@ -218,7 +218,7 @@
     }
     
     function addRepresentanteFormDeleteLink($representanteFormLi) {
-        var $removeFormButton = $('<button type="button">Eliminar Representante</button>');
+        var $removeFormButton = $('<button type="button" class="btn btn-primary">Eliminar Representante</button>');
         $representanteFormLi.append($removeFormButton);
 
         $removeFormButton.on('click', function(e) {

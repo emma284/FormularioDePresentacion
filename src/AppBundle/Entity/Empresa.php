@@ -14,6 +14,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Empresa
 {
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Representante", cascade={"persist"})
+     */
     protected $representantes;
     
     
@@ -102,13 +105,13 @@ class Empresa
         
         
         // for a many-to-one association:
-        $tag->setRepresentante($this);
+        $representante->setIdempresa($this);
 
         $this->representantes->add($representante);
         
     }
 
-    public function removeRepresentante(Tag $representante)
+    public function removeRepresentante(Representante $representante)
     {
         $this->representantes->removeElement($representante);
     }
@@ -141,7 +144,7 @@ class Empresa
     /**
      * Set razonsocial
      *
-     * @param string $razonsocial
+     * @param string $razonSocial
      *
      * @return Empresa
      */

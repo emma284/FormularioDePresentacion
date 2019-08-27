@@ -38,6 +38,7 @@ class EmpresaType extends AbstractType
         ;
         
         $builder->add('representantes', CollectionType::class, [
+            'label' => false,
             'entry_type' => RepresentanteType::class,
             'entry_options' => ['label' => false],
             'allow_add' => true,

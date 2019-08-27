@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Perito
 {
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="nroRegistro", type="integer", nullable=false)
+     * @ORM\Column(name="nroRegistro", type="string", nullable=false)
      */
     private $nroregistro;
 

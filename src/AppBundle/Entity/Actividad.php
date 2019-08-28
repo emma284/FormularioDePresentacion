@@ -29,7 +29,7 @@ class Actividad
     /**
      * @var integer
      *
-     * @ORM\Column(name="estandar", type="integer", nullable=false)
+     * @ORM\Column(name="estandar", type="integer", nullable=true)
      */
     private $estandar;
 

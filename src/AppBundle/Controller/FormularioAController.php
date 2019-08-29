@@ -108,7 +108,7 @@ use Symfony\Component\HttpFoundation\Request;
             return $this->redirectToRoute('listar_formularios');
 
         }
-        return $this->render('formularioA/modificar.html.twig',[
+        return $this->render('formularioA/new.html.twig',[
             'form' => $form->createView(),
         ]);
     }

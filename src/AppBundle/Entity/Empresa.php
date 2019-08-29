@@ -20,6 +20,7 @@ class Empresa
     protected $representantes;
     
     
+    
     /**
      * @var bigint
      *
@@ -93,6 +94,7 @@ class Empresa
     {
         $this->idactividad = new ArrayCollection();
         $this->representantes = new ArrayCollection();
+        
     }
     
     public function getRepresentantes()

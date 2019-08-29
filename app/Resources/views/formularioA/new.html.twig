@@ -119,6 +119,18 @@
                     </div>
                 </div>
                 
+                <h3>Perito, consultor o experto</h3>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_label(form.domicilio.empresa.idperito) }}
+                        {{ form_widget(form.domicilio.empresa.idperito, {'attr': {'class': form_errors(form.domicilio.empresa.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.domicilio.empresa.idperito) }}
+                        </div>
+                    </div>
+                    
+                </div> 
+                
                 
 {#                <div class="form-row">
                     <div class="form-group col-md-6">

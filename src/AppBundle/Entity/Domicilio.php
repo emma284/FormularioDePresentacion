@@ -17,6 +17,7 @@ class Domicilio
      * @var string
      *
      * @ORM\Column(name="tipo", type="string", length=20, nullable=false)
+     * 
      */
     private $tipo;
 
@@ -24,6 +25,7 @@ class Domicilio
      * @var string
      *
      * @ORM\Column(name="calle", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $calle;
 
@@ -31,27 +33,30 @@ class Domicilio
      * @var string
      *
      * @ORM\Column(name="numero", type="string", length=6, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $numero;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="piso", type="integer", nullable=false)
+     * @ORM\Column(name="piso", type="integer", nullable=true)
+     * 
      */
     private $piso;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="depto", type="string", length=6, nullable=false)
+     * @ORM\Column(name="depto", type="string", length=6, nullable=true)
      */
     private $depto;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="telefono", type="integer", nullable=false)
+     * @ORM\Column(name="telefono", type="integer", nullable=true)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $telefono;
 
@@ -59,6 +64,7 @@ class Domicilio
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $email;
 

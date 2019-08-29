@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Representante
@@ -16,6 +17,7 @@ class Representante
      * @var bigint
      *
      * @ORM\Column(name="dni", type="bigint", nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $dni;
 
@@ -23,6 +25,7 @@ class Representante
      * @var string
      *
      * @ORM\Column(name="apellido", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $apellido;
 
@@ -30,6 +33,7 @@ class Representante
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $nombre;
 
@@ -37,6 +41,7 @@ class Representante
      * @var string
      *
      * @ORM\Column(name="cargo", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $cargo;
 
@@ -44,6 +49,7 @@ class Representante
      * @var string
      *
      * @ORM\Column(name="tipo", type="string", length=20, nullable=false)
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $tipo;
 

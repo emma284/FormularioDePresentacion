@@ -1,9 +1,19 @@
-
-
 {% extends '@STGTheme/Default/base.html.twig' %}
-{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-{{ form_widget(form) }}
-{{ form_end(form) }} #}
+
+{% form_theme form _self %}
+
+{% block _representante_representantes_entry_widget %}
+    {{ dump() }}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            {{ form_label(representante.dni) }}
+            {#{{ form_widget(form.domicilio.empresa.representantes.dni, {'attr': {'class': form_errors(form.domicilio.empresa.representantes.dni) ? 'form-control is-invalid' : 'form-control'}}) }}
+            <div class="invalid-feedback">
+                {{ form_errors(form.domicilio.empresa.representantes.dni) }}
+            </div>#}
+        </div>
+    </div>   
+{% endblock %}
 
 
 
@@ -60,18 +70,9 @@
                         </div>
                     </div>
                 </div>
-                        <h1>Domicilio Legal:</h1>
-                        
-{#                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.tipo) }}
-                        {{ form_widget(form.domicilio.tipo, {'attr': {'class': form_errors(form.domicilio.tipo) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.tipo) }}
-                        </div>
-                    </div>
-                </div>#}
 
+                <h1>Domicilio Legal:</h1>
+                        
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         {{ form_label(form.domicilio.calle) }}
@@ -120,6 +121,7 @@
                 </div>
                 
                 <h3>Perito, consultor o experto</h3>
+                
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         {{ form_label(form.domicilio.empresa.idperito) }}
@@ -143,6 +145,7 @@
                 </div>#}
                 
                 <h3>Representantes</h3>
+                
                 <ul class="representantes" data-prototype="{{ form_widget(form.domicilio.empresa.representantes.vars.prototype)|e('html_attr') }}">
                     {# iterate over each existing representante and render its only field: name #}
                     {% for representante in form.domicilio.empresa.representantes %}

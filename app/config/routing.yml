@@ -1,3 +1,6 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+    
+dependent_select:
+    resource: '@DependentSelectBundle/Resources/config/routing.xml'

@@ -1,0 +1,87 @@
+<?php
+
+namespace AppBundle\Controller;
+
+use AppBundle\Entity\Empresa;
+use AppBundle\Form\EmpresaType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+
+// Include JSON Response
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+/**
+ * Person controller.
+ *
+ */
+class EmpresaController extends Controller
+{
+ 
+    /**
+     * @Route("/empresa/nuevo/", name="empresa_nuevo")
+     */
+    public function EmpresaNuevoAction(Request $request)
+    {
+        $empresa = new Empresa();
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(EmpresaType::class, $empresa);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $empresa = $form->getData();
+            $entityManager->persist($empresa);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('listar_formularios');
+
+        }
+        return $this->render('default/new.html.twig',[
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    /**
+     * Returns a JSON string with the neighborhoods of the City with the providen id.
+     * @Route("/empresa/dependent", name="empresa_list_actividades", defaults={"_controller": "AppBundle:Controller:EmpresaController:listActividadesOfGrupoActividadAction"}, methods="GET")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function listActividadesOfGrupoActividadAction(Request $request)
+    {
+        // Get Entity manager and repository
+        $em = $this->getDoctrine()->getManager();
+        $actividadesRepository = $em->getRepository("AppBundle:Actividad");
+        
+        // Search the neighborhoods that belongs to the city with the given id as GET parameter "cityid"
+        $actividades = $actividadesRepository->createQueryBuilder("q")
+            ->where("q.idgrupo = :grupoid")
+            ->setParameter("grupoid", $request->query->get("grupoid"))
+            ->getQuery()
+            ->getResult();
+        
+        // Serialize into an array the data that we need, in this case only name and id
+        // Note: you can use a serializer as well, for explanation purposes, we'll do it manually
+        $responseArray = array();
+        foreach($actividades as $actividad){
+            $responseArray[] = array(
+                "id" => $actividad->getId(),
+                "name" => $actividad->getNombreactividad()
+            );
+        }
+        
+        // Return array with structure of the neighborhoods of the providen city id
+        return new JsonResponse($responseArray);
+
+        // e.g
+        // [{"id":"3","name":"Treasure Island"},{"id":"4","name":"Presidio of San Francisco"}]
+    }
+    
+}
+
+

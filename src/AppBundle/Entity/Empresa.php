@@ -18,9 +18,11 @@ class Empresa
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Representante", cascade={"persist"})
      */
     protected $representantes;
-    
-    
-    
+    protected $grupoActividad;
+
+
+
+
     /**
      * @var bigint
      *
@@ -92,7 +94,7 @@ class Empresa
      */
     public function __construct()
     {
-        $this->idactividad = new ArrayCollection();
+//        $this->idactividad = new ArrayCollection();
         $this->representantes = new ArrayCollection();
         
     }
@@ -281,5 +283,17 @@ class Empresa
     public function getIdactividad()
     {
         return $this->idactividad;
+    }
+    
+    public function setGrupoActividad($grupoActividad)
+    {
+        $this->grupoActividad = $grupoActividad;
+
+        return $this;
+    }
+
+    public function getGrupoActividad()
+    {
+        return $this->grupoActividad;
     }
 }

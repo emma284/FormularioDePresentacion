@@ -17,7 +17,7 @@ class Grupoactividad
      *
      * @ORM\Column(name="nombreGrupo", type="string", length=100, nullable=false)
      */
-    private $nombregrupo;
+    private $nombreGrupo;
 
     /**
      * @var int
@@ -31,27 +31,27 @@ class Grupoactividad
 
 
     /**
-     * Set nombregrupo
+     * Set nombreGrupo
      *
-     * @param string $nombregrupo
+     * @param string $nombreGrupo
      *
      * @return Grupoactividad
      */
-    public function setNombregrupo($nombregrupo)
+    public function setNombreGrupo($nombreGrupo)
     {
-        $this->nombregrupo = $nombregrupo;
+        $this->nombreGrupo = $nombreGrupo;
 
         return $this;
     }
 
     /**
-     * Get nombregrupo
+     * Get nombreGrupo
      *
      * @return string
      */
-    public function getNombregrupo()
+    public function getNombreGrupo()
     {
-        return $this->nombregrupo;
+        return $this->nombreGrupo;
     }
 
     /**

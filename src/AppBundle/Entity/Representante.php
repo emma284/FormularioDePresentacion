@@ -70,7 +70,7 @@ class Representante
      *   @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
      * })
      */
-    private $idempresa;
+    private $idEmpresa;
 
 
 
@@ -205,26 +205,26 @@ class Representante
     }
 
     /**
-     * Set idempresa
+     * Set idEmpresa
      *
-     * @param \AppBundle\Entity\Empresa $idempresa
+     * @param \AppBundle\Entity\Empresa $idEmpresa
      *
      * @return Representante
      */
-    public function setIdempresa(\AppBundle\Entity\Empresa $idempresa)
+    public function setIdEmpresa(\AppBundle\Entity\Empresa $idEmpresa)
     {
-        $this->idempresa = $idempresa;
+        $this->idEmpresa = $idEmpresa;
 
         return $this;
     }
 
     /**
-     * Get idempresa
+     * Get idEmpresa
      *
      * @return \AppBundle\Entity\Empresa
      */
-    public function getIdempresa()
+    public function getIdEmpresa()
     {
-        return $this->idempresa;
+        return $this->idEmpresa;
     }
 }

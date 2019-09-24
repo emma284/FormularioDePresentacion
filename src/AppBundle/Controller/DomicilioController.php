@@ -11,141 +11,88 @@ namespace AppBundle\Controller;
 /**
  * Description of DomicilioController
  *
- * @author Emma
+ * 
  */
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Domicilio;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\FormularioA;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\DomicilioType;
 
-class DomicilioController extends Controller{
+class DomicilioController extends Controller
+{
     
     /**
-     * @Route("/domicilio/nuevo/")
+     * @Route("/domicilio/nuevo/{formulario_id}", name="domicilio_nuevo")
      */
-    public function createAction()
+    public function domicilioANuevoAction(Request $request, $formulario_id)
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to your action: createAction(EntityManagerInterface $entityManager)
+        $domicilio = new Domicilio();
+
         $entityManager = $this->getDoctrine()->getManager();
 
-        $domicilio = new Domicilio();
-        $domicilio->setCalle('San Lorenzo');
-        $domicilio->setNumero(16);
-        $domicilio->setPiso(0);
-        $domicilio->setDpto('b');
-        $domicilio->setTelefono('98765432124');
-        $domicilio->setEmail('mail@algo.com');
-     
-
-        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($domicilio);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-
-        return new Response('Saved new product with id '.$domicilio->getId());
-    }
-
-    // if you have multiple entity managers, use the registry to fetch them
-//    public function editAction()
-//    {
-//        $doctrine = $this->getDoctrine();
-//        $entityManager = $doctrine->getManager();
-//        $otherEntityManager = $doctrine->getManager('other_connection');
-//    }
-    /**
-     * @Route("/domicilio/mostrar/{id}/")
-     */
-    public function showAction($id)
-    {
-        $domicilio = $this->getDoctrine()->getRepository(Domicilio::class)->find($id);
-        
-        if (!$domicilio) {
-            throw $this->createNotFoundException('No se encontró domicilio que tiene este id '.$id);
-        }
-        else{
-            return new Response('Se encontró el domicilio con id: '.$domicilio->getId().'. Está ubicado en calle: '.$domicilio->getCalle().' al '.$domicilio->getNumero());
-        }
-    }
-
-    /**
-     * @Route("/domicilio/form/", name="laRutaVieja")
-     */
-    //Formularios con seteo de datos por defecto
-    public function new2(Request $request)
-    {
-
-        // creates a domicilio and gives it some dummy data for this example
-        $domicilio = new Domicilio();
         $form = $this->createForm(DomicilioType::class, $domicilio);
 
-        // catch all data
         $form->handleRequest($request);
-
         
-        // validate all data and if it success save them
-        if ($form->isSubmitted() && $form->isValid()) {
+        $formulario = $entityManager
+                        ->getRepository(FormularioA::class)
+                        ->find($formulario_id);
+        
+        if($form->isSubmitted() && $form->isValid()){
+
+            $domicilio = $form->getData();
             
-            $task = $form->getData();
+            
+            $domicilio->setEmpresa($formulario->getEmpresa());
+            $entityManager->persist($domicilio);
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
 
-
-            return $this->redirectToRoute('laRuta');
         }
         
-        return $this->render('domicilio/new.html.twig', [
+        return $this->render('news/domicilio_new.html.twig',[
             'form' => $form->createView(),
+            'formulario' => $formulario,
         ]);
-
     }
-
-
-
+    
     /**
-     * @Route("/domicilio/nuevoDomicilio/" ,name="laRuta")
+     * @Route("/domicilio/modificar/{id}_{formulario_id}", name="domicilio_modificar")
      */
-    //Formularios con petición de datos por pantalla
-    public function new(Request $request)
+    public function domicilioModificarAction(Request $request, $id, $formulario_id)
     {
-        // creates a domicilio and gives it some dummy data for this example
-        $domicilio = new Domicilio();
-
-        // creates the form 
-        $form = $this->createFormBuilder($domicilio)
-            ->add('calle', TextType::class, ['label' => 'Calle: '])
-            ->add('numero', IntegerType::class, ['label' => 'Número: '])
-            ->add('piso', IntegerType::class, ['label' => 'Piso: '])
-            ->add('dpto', TextType::class, ['label' => 'Departamento: '])
-            ->add('telefono', TextType::class, ['label' => 'Teléfono: '])
-            ->add('email', EmailType::class, ['label' => 'Email: '])
-            ->add('save', SubmitType::class, ['label' => 'Create Domicilio'])
-            ->getForm();
-
-
-        // catch all data
-        $form->handleRequest($request);
-
-        
-        // validate all data and if it success save them
-        if ($form->isSubmitted() && $form->isValid()) {
             
-            $task = $form->getData();
+        $entityManager = $this->getDoctrine()->getManager();
 
+        $domicilio = $entityManager
+            ->getRepository(Domicilio::class)
+            ->find($id);
 
-            return $this->redirectToRoute('laRutaVieja');
-        }
+        $form = $this->createForm(DomicilioType::class, $domicilio);
+
+        $form->handleRequest($request);
         
-        return $this->render('domicilio/new.html.twig', [
+        $formulario = $entityManager
+                        ->getRepository(FormularioA::class)
+                        ->find($formulario_id);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $domicilio = $form->getData();
+
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
+
+        }
+        return $this->render('news/domicilio_new.html.twig',[
             'form' => $form->createView(),
+            'formulario' => $formulario,
         ]);
     }
+    
 }

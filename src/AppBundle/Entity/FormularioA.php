@@ -23,12 +23,12 @@ class FormularioA
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Domicilio", cascade={"persist"})
-     * @ORM\JoinColumn(name="domicilio_id",referencedColumnName="id")
-     * @Assert\Type(type="AppBundle\Entity\Domicilio")
+     * @ORM\OneToOne(targetEntity="Empresa", cascade={"persist"})
+     * @ORM\JoinColumn(name="empresa_id",referencedColumnName="id")
+     * @Assert\Type(type="AppBundle\Entity\Empresa")
      * @Assert\Valid
      */
-    private $domicilio;
+    private $empresa;
 
 
     /**
@@ -65,12 +65,12 @@ class FormularioA
         $this->resumenEjecutivo = $resumenEjecutivo;
     }
 
-    public function getDomicilio() {
-        return $this->domicilio;
+    public function getEmpresa() {
+        return $this->empresa;
     }
 
-    public function setDomicilio($domicilio) {
-        $this->domicilio = $domicilio;
+    public function setEmpresa($empresa) {
+        $this->empresa = $empresa;
     }
     
     function getFechaBaja() {

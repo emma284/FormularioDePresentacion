@@ -1,0 +1,220 @@
+{% extends '@STGTheme/Default/base.html.twig' %}
+{# {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_widget(form) }}
+{{ form_end(form) }} #}
+
+{% block content %}
+    {% for message in app.flashes('notice') %}
+        <div class='flash-notice'>
+            {{ message }}
+        </div>
+    {% endfor %}
+    
+    <div class="card bg-light mb-12">
+       
+        <div class="card-body">
+            <h1>Detalles de FORMULARIO A - ID: {{ formulario.id }}</h1>
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Resumen ejecutivo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>{{ formulario.resumenEjecutivo }}</th>
+                    </tr>
+                </tbody>
+            </table>
+                    
+            <h1>Datos Identificatorios:</h1>
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Razon Social</th>
+                        <th scope="col">CUIT</th>
+                        <th scope="col">Fecha inicio actividades</th>
+                        <th scope="col">Tipo Persona</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>{{ formulario.empresa.razonSocial }}</th>
+                        <th>{{ formulario.empresa.cuit }}</th>
+                        <th>{{ formulario.empresa.fechaInicioActividades|date('Y-m-d') }}</th>
+                        <th>{{ formulario.empresa.tipoPersona }}</th>
+                    </tr>
+                </tbody>
+            </table>        
+                    
+        
+            <h1>Listado de Domicilios:</h1>
+            <table class="table table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Piso</th>
+                        <th scope="col">Dto</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for domicilio in domicilios %}
+                        <tr>
+                            <th scope="row">{{ domicilio.calle }}</th>
+                            <td>{{ domicilio.numero }}</td>
+                            <td>{{ domicilio.piso }}</td>
+                            <td>{{ domicilio.depto }}</td>
+                            <td>{{ domicilio.tipo }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_modificar', {'id' : domicilio.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
+                                <button type="button" class="btn btn-primary" >Eliminar</button>
+                                
+                            </td>
+                        </tr>
+                        
+                    {% else %}
+                        <tr>
+                            <th scope="row" colspan="5">No se encontraron resultados.</th>
+                            
+                        </tr>
+                    {% endfor %}
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
+                    </td>
+                    
+                </tbody>
+                    
+            </table>
+                    
+           {# <h1>Listado de Actividades:</h1>
+            <table class="table table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Piso</th>
+                        <th scope="col">Dto</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for domicilio in domicilios %}
+                        <tr>
+                            <th scope="row">{{ domicilio.calle }}</th>
+                            <td>{{ domicilio.numero }}</td>
+                            <td>{{ domicilio.piso }}</td>
+                            <td>{{ domicilio.depto }}</td>
+                            <td>{{ domicilio.tipo }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_modificar', {'id' : domicilio.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
+                                <button type="button" class="btn btn-primary" >Eliminar</button>
+                                
+                            </td>
+                        </tr>
+                        
+                    {% else %}
+                        <tr>
+                            <th scope="row" colspan="5">No se encontraron resultados.</th>
+                            
+                        </tr>
+                    {% endfor %}
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
+                    </td>
+                    
+                </tbody>
+                    
+            </table>#}
+            
+            <h1>Listado de Representanes:</h1>
+            <table class="table table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for representante in representantes %}
+                        <tr>
+                            <th scope="row">{{ representante.dni }}</th>
+                            <td>{{ representante.nombre }}</td>
+                            <td>{{ representante.apellido }}</td>
+                            <td>{{ representante.cargo }}</td>
+                            <td>{{ representante.tipo }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" >Editar</button>
+                                <button type="button" class="btn btn-primary">Eliminar</button>
+                                {#onclick="window.location.href = '{{ path('') }}#}
+                            </td>
+                        </tr>
+                        
+                    {% else %}
+                        <tr>
+                            <th scope="row" colspan="5">No se encontraron resultados.</th>
+                            
+                        </tr>
+                    {% endfor %}
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('representante_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
+                    </td>
+                    
+                </tbody>
+                    
+            </table>
+            
+            <h1>Perito:</h1>
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Profesión</th>
+                        <th scope="col">Nº de Registro</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if formulario.empresa.idperito %}
+                    <tr>
+                        <th>{{ formulario.empresa.idperito.apellido }}</th>
+                        <th>{{ formulario.empresa.idperito.nombre }}</th>
+                        <th>{{ formulario.empresa.idperito.profesion}}</th>
+                        <th>{{ formulario.empresa.idperito.nroregistro }}</th>
+                        <th>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setPerito', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
+                        </th>
+                    </tr>
+                    {% else %}
+                        <tr>
+                            <th scope="row" colspan="4">No se ingresó perito.</th>
+                            <td>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setPerito', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Agregar</button>
+
+                            </td>
+                        </tr>
+                    {% endif %}  
+                </tbody>
+            </table>        
+                    
+            <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>       
+        
+        </div>
+    </div>
+
+    
+
+{% endblock %}

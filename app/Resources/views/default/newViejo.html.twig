@@ -1,5 +1,5 @@
 {% extends '@STGTheme/Default/base.html.twig' %}
-{#PRUEBA DEPENDENT SELECT #}
+
 {% form_theme form _self %}
 
 {% block _representante_representantes_entry_widget %}
@@ -7,9 +7,9 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             {{ form_label(representante.dni) }}
-            {#{{ form_widget(form.representantes.dni, {'attr': {'class': form_errors(form.representantes.dni) ? 'form-control is-invalid' : 'form-control'}}) }}
+            {#{{ form_widget(form.domicilio.empresa.representantes.dni, {'attr': {'class': form_errors(form.domicilio.empresa.representantes.dni) ? 'form-control is-invalid' : 'form-control'}}) }}
             <div class="invalid-feedback">
-                {{ form_errors(form.representantes.dni) }}
+                {{ form_errors(form.domicilio.empresa.representantes.dni) }}
             </div>#}
         </div>
     </div>   
@@ -29,7 +29,7 @@
             <h1>Datos Identificatorios:</h1>
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
            
-                {#<div class="form-row">
+                <div class="form-row">
                     <div class="form-group col-md-12">
                         {{ form_label(form.resumenEjecutivo) }}
                         {{ form_widget(form.resumenEjecutivo, {'attr': {'class': form_errors(form.resumenEjecutivo) ? 'form-control is-invalid' : 'form-control'}}) }}
@@ -37,43 +37,43 @@
                             {{ form_errors(form.resumenEjecutivo) }}
                         </div>
                     </div>
-                </div>#}
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.cuit) }}
-                        {{ form_widget(form.cuit, {'attr': {'class': form_errors(form.cuit) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.domicilio.empresa.cuit) }}
+                        {{ form_widget(form.domicilio.empresa.cuit, {'attr': {'class': form_errors(form.domicilio.empresa.cuit) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.cuit) }}
+                            {{ form_errors(form.domicilio.empresa.cuit) }}
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form_label(form.razonSocial) }}
-                        {{ form_widget(form.razonSocial, {'attr': {'class': form_errors(form.razonSocial) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.domicilio.empresa.razonSocial) }}
+                        {{ form_widget(form.domicilio.empresa.razonSocial, {'attr': {'class': form_errors(form.domicilio.empresa.razonSocial) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.razonSocial) }}
+                            {{ form_errors(form.domicilio.empresa.razonSocial) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.tipoPersona) }}
-                        {{ form_widget(form.tipoPersona, {'attr': {'class': form_errors(form.tipoPersona) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.domicilio.empresa.tipoPersona) }}
+                        {{ form_widget(form.domicilio.empresa.tipoPersona, {'attr': {'class': form_errors(form.domicilio.empresa.tipoPersona) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.tipoPersona) }}
+                            {{ form_errors(form.domicilio.empresa.tipoPersona) }}
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form_label(form.fechaInicioActividades) }}
-                        {{ form_widget(form.fechaInicioActividades, {'attr': {'class': form_errors(form.fechaInicioActividades) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.domicilio.empresa.fechaInicioActividades) }}
+                        {{ form_widget(form.domicilio.empresa.fechaInicioActividades, {'attr': {'class': form_errors(form.domicilio.empresa.fechaInicioActividades) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.fechaInicioActividades) }}
+                            {{ form_errors(form.domicilio.empresa.fechaInicioActividades) }}
                         </div>
                     </div>
                 </div>
 
                 <h1>Domicilio Legal:</h1>
                         
-                {#<div class="form-row">
+                <div class="form-row">
                     <div class="form-group col-md-3">
                         {{ form_label(form.domicilio.calle) }}
                         {{ form_widget(form.domicilio.calle, {'attr': {'class': form_errors(form.domicilio.calle) ? 'form-control is-invalid' : 'form-control'}}) }}
@@ -118,16 +118,16 @@
                             {{ form_errors(form.domicilio.email) }}
                         </div>
                     </div>
-                </div>#}
+                </div>
                 
                 <h3>Perito, consultor o experto</h3>
                 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.idperito) }}
-                        {{ form_widget(form.idperito, {'attr': {'class': form_errors(form.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.domicilio.empresa.idperito) }}
+                        {{ form_widget(form.domicilio.empresa.idperito, {'attr': {'class': form_errors(form.domicilio.empresa.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.idperito) }}
+                            {{ form_errors(form.domicilio.empresa.idperito) }}
                         </div>
                     </div>
                     
@@ -146,9 +146,9 @@
                 
                 <h3>Representantes</h3>
                 
-                <ul class="representantes" data-prototype="{{ form_widget(form.representantes.vars.prototype)|e('html_attr') }}">
+                <ul class="representantes" data-prototype="{{ form_widget(form.domicilio.empresa.representantes.vars.prototype)|e('html_attr') }}">
                     {# iterate over each existing representante and render its only field: name #}
-                    {% for representante in form.representantes %}
+                    {% for representante in form.domicilio.empresa.representantes %}
                         <li></li>
                     {% endfor %}
                 </ul>
@@ -163,7 +163,7 @@
                         <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>
                     </div>
                 </div>
-                    
+               
                 
                 {{form_end(form)}}
         </div>

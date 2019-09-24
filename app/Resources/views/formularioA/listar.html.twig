@@ -30,8 +30,8 @@
                     {% for formulario in formularios %}
                         <tr>
                             <th scope="row">{{ formulario.id }}</th>
-                            <td>{{ formulario.domicilio.empresa.razonSocial }}</td>
-                            <td>{{ formulario.domicilio.empresa.cuit }}</td>
+                            <td>{{ formulario.empresa.razonSocial }}</td>
+                            <td>{{ formulario.empresa.cuit }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Ver</button>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_modificar', {'id' : formulario.id }) }}'">Modificar</button>

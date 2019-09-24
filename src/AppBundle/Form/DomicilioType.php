@@ -33,18 +33,16 @@ class DomicilioType extends AbstractType
 //                    ],
 //                ])    
             
-//            ->add('tipo', ChoiceType::class, [
-//                    'choices'  => [
-//                        'Real' => "Real",
-//                        'Legal' => "Legal",
-//                        'Constituido' => "Constituido",
-//                    ],
-//                ])
+            ->add('tipo', ChoiceType::class, [
+                    'choices'  => [
+                        'Real' => "Real",
+                        'Legal' => "Legal",
+                        'Constituido' => "Constituido",
+                    ],
+                ])
                 
             ->add('email', EmailType::class, ['label' => 'Email: '])
-            
-            ->add('empresa', EmpresaType::class, ['label' => false])
-                
+      
 
         ;
     }

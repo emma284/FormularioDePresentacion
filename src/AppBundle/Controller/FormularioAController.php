@@ -11,13 +11,15 @@ namespace AppBundle\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\FormularioA;
+use AppBundle\Entity\Domicilio;
+use AppBundle\Entity\Representante;
 use AppBundle\Form\FormularioAType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Description of FormularioAController
  *
- * @author Emma
+ *
  */
 
  class FormularioAController extends Controller
@@ -38,7 +40,6 @@ use Symfony\Component\HttpFoundation\Request;
         if($form->isSubmitted() && $form->isValid()){
 
             $formularioA = $form->getData();
-            $formularioA->getDomicilio()->setTipo('Legal');
             $entityManager->persist($formularioA);
             $entityManager->flush();
             
@@ -76,8 +77,23 @@ use Symfony\Component\HttpFoundation\Request;
                     ->getRepository(FormularioA::class)
                     ->find($id);
         
-        return $this->render('formularioA/ver.html.twig', array(
-            'formulario' => $formulario));
+        $domicilios = $entityManager
+                    ->getRepository(Domicilio::class)
+                    ->findBy([
+                        'empresa' => $formulario->getEmpresa()->getId()
+                    ]);
+        
+        $representantes = $entityManager
+                    ->getRepository(Representante::class)
+                    ->findBy([
+                        'idEmpresa' => $formulario->getEmpresa()->getId()
+                    ]);
+        
+        
+        return $this->render('formularioA/formularioA.html.twig', array(
+            'formulario' => $formulario,
+            'domicilios' => $domicilios,
+            'representantes' => $representantes));
     }
 
 
@@ -101,7 +117,7 @@ use Symfony\Component\HttpFoundation\Request;
         if($form->isSubmitted() && $form->isValid()){
 
             $formulario = $form->getData();
-            $formulario->getDomicilio()->setTipo('Legal');
+
 //            $entityManager->persist($formulario);
             $entityManager->flush();
             

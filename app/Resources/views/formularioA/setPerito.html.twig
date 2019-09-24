@@ -1,0 +1,51 @@
+{% extends '@STGTheme/Default/base.html.twig' %}
+
+
+{% block content %}
+
+    
+    <div class="card bg-light mb-12">
+        
+
+
+        <div class="card-body">
+            <h1>CONSULTOR, EXPERTO o PERITO DEL REGISTRO OFICIAL DE CONSULTORES, EXPERTOS Y PERITOS</h1>
+            <p>Si el consultor, perito o experto no se encuentra en el desplegable del presente formulario podrá
+                ingresar los datos del mismo manualmente, siempre previa verificación de que el mismo figura en el
+                Registro Oficial de Consultores, Expertos y Peritos accesible desde este link: 
+                <link href="https://www.santafe.gov.ar/index.php/web/content/view/full/159535/"></p>
+            <p>Los consultores, peritos o expertos tendrán responsabilidad administrativa por la información técnica
+                suministrada.</p>
+
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+           
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_label(form.idperito) }}
+                        {{ form_widget(form.idperito, {'attr': {'class': form_errors(form.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.idperito) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-primary" >Nuevo</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        {#{{ form_widget(form.save) }}#}
+                        <button type="submit" class="btn btn-primary" formnovalidate>Guardar</button>
+                    </div>
+                    <div>&nbsp;</div>{# Espacio en blanco p/separar botones #}
+                    <div>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('formulario_ver', {'id' : formulario.id }) }}'">Volver</button>
+                    </div>
+                </div>
+                
+                
+                {{form_end(form)}}
+        </div>
+    </div>
+{% endblock %}
+
+

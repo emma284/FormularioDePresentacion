@@ -91,8 +91,8 @@ class Domicilio
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
      * })
-     * @Assert\Type(type="AppBundle\Entity\Empresa")
-     * @Assert\Valid
+     * 
+     * 
      */
     private $empresa;
 
@@ -333,7 +333,7 @@ class Domicilio
     /**
      * Set idempresa
      *
-     * @param \AppBundle\Entity\Empresa $idempresa
+     * @param \AppBundle\Entity\Empresa $empresa
      *
      * @return Domicilio
      */

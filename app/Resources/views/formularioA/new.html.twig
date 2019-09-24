@@ -7,9 +7,9 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             {{ form_label(representante.dni) }}
-            {#{{ form_widget(form.domicilio.empresa.representantes.dni, {'attr': {'class': form_errors(form.domicilio.empresa.representantes.dni) ? 'form-control is-invalid' : 'form-control'}}) }}
+            {#{{ form_widget(form.empresa.representantes.dni, {'attr': {'class': form_errors(form.empresa.representantes.dni) ? 'form-control is-invalid' : 'form-control'}}) }}
             <div class="invalid-feedback">
-                {{ form_errors(form.domicilio.empresa.representantes.dni) }}
+                {{ form_errors(form.empresa.representantes.dni) }}
             </div>#}
         </div>
     </div>   
@@ -40,99 +40,51 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.empresa.cuit) }}
-                        {{ form_widget(form.domicilio.empresa.cuit, {'attr': {'class': form_errors(form.domicilio.empresa.cuit) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.empresa.cuit) }}
+                        {{ form_widget(form.empresa.cuit, {'attr': {'class': form_errors(form.empresa.cuit) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.empresa.cuit) }}
+                            {{ form_errors(form.empresa.cuit) }}
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.empresa.razonSocial) }}
-                        {{ form_widget(form.domicilio.empresa.razonSocial, {'attr': {'class': form_errors(form.domicilio.empresa.razonSocial) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.empresa.razonSocial) }}
+                        {{ form_widget(form.empresa.razonSocial, {'attr': {'class': form_errors(form.empresa.razonSocial) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.empresa.razonSocial) }}
+                            {{ form_errors(form.empresa.razonSocial) }}
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.empresa.tipoPersona) }}
-                        {{ form_widget(form.domicilio.empresa.tipoPersona, {'attr': {'class': form_errors(form.domicilio.empresa.tipoPersona) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.empresa.tipoPersona) }}
+                        {{ form_widget(form.empresa.tipoPersona, {'attr': {'class': form_errors(form.empresa.tipoPersona) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.empresa.tipoPersona) }}
+                            {{ form_errors(form.empresa.tipoPersona) }}
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.empresa.fechaInicioActividades) }}
-                        {{ form_widget(form.domicilio.empresa.fechaInicioActividades, {'attr': {'class': form_errors(form.domicilio.empresa.fechaInicioActividades) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.empresa.fechaInicioActividades) }}
+                        {{ form_widget(form.empresa.fechaInicioActividades, {'attr': {'class': form_errors(form.empresa.fechaInicioActividades) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.empresa.fechaInicioActividades) }}
+                            {{ form_errors(form.empresa.fechaInicioActividades) }}
                         </div>
                     </div>
                 </div>
 
-                <h1>Domicilio Legal:</h1>
-                        
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.calle) }}
-                        {{ form_widget(form.domicilio.calle, {'attr': {'class': form_errors(form.domicilio.calle) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.calle) }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.numero) }}
-                        {{ form_widget(form.domicilio.numero, {'attr': {'class': form_errors(form.domicilio.numero) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.numero) }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.piso) }}
-                        {{ form_widget(form.domicilio.piso, {'attr': {'class': form_errors(form.domicilio.piso) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.piso) }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        {{ form_label(form.domicilio.depto) }}
-                        {{ form_widget(form.domicilio.depto, {'attr': {'class': form_errors(form.domicilio.depto) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.depto) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.telefono) }}
-                        {{ form_widget(form.domicilio.telefono, {'attr': {'class': form_errors(form.domicilio.telefono) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.telefono) }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.email) }}
-                        {{ form_widget(form.domicilio.email, {'attr': {'class': form_errors(form.domicilio.email) ? 'form-control is-invalid' : 'form-control'}}) }}
-                        <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.email) }}
-                        </div>
-                    </div>
-                </div>
                 
-                <h3>Perito, consultor o experto</h3>
+{#                <h3>Perito, consultor o experto</h3>
                 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form_label(form.domicilio.empresa.idperito) }}
-                        {{ form_widget(form.domicilio.empresa.idperito, {'attr': {'class': form_errors(form.domicilio.empresa.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        {{ form_label(form.empresa.idperito) }}
+                        {{ form_widget(form.empresa.idperito, {'attr': {'class': form_errors(form.empresa.idperito) ? 'form-control is-invalid' : 'form-control'}}) }}
                         <div class="invalid-feedback">
-                            {{ form_errors(form.domicilio.empresa.idperito) }}
+                            {{ form_errors(form.empresa.idperito) }}
                         </div>
                     </div>
                     
                 </div> 
-                
+                #}
                 
 {#                <div class="form-row">
                     <div class="form-group col-md-6">
@@ -144,15 +96,7 @@
                     </div>
                 </div>#}
                 
-                <h3>Representantes</h3>
-                
-                <ul class="representantes" data-prototype="{{ form_widget(form.domicilio.empresa.representantes.vars.prototype)|e('html_attr') }}">
-                    {# iterate over each existing representante and render its only field: name #}
-                    {% for representante in form.domicilio.empresa.representantes %}
-                        <li></li>
-                    {% endfor %}
-                </ul>
-                
+
                 <div class="form-row">
                     <div>
                         {#{{ form_widget(form.save) }}#}
@@ -163,7 +107,6 @@
                         <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>
                     </div>
                 </div>
-               
                 
                 {{form_end(form)}}
         </div>

@@ -17,7 +17,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Evercode\DependentSelectBundle\Form\Type\DependentFilteredEntityType;
 use Doctrine\ORM\EntityManagerInterface;
 
 
@@ -54,52 +53,35 @@ class EmpresaType extends AbstractType
                 ],
             ])
             
-            ->add('idperito', EntityType::class, [
-                'label' => false,
-                'placeholder' => 'Elija una opción',
-                'class' => 'AppBundle:Perito',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('p')
-                        ->orderBy('p.apellido', 'ASC');
-                    },
-
-                'choice_label' => function ($perito) {
-                      $str = ", ";
-                      return "{$perito->getApellido()}{$str}{$perito->getNombre()}";
-                }
-            ])
-            
-            ->add('representantes', CollectionType::class, [
-            'label' => false,
-            'block_name' => 'representantes',
-            'entry_type' => RepresentanteType::class,
-            'entry_options' => ['label' => false],
-            'allow_add' => true,
-            'by_reference' => false,
-            'allow_delete' => true,
-            ])
-            
-//            ->add('grupoActividad', EntityType::class, [
-//                'class'       => Grupoactividad::class,
-//                'placeholder' => false,
+//            ->add('idperito', EntityType::class, [
+//                'label' => false,
+//                'placeholder' => 'Elija una opción',
+//                'class' => 'AppBundle:Perito',
 //                'query_builder' => function (EntityRepository $er) {
-//                    return $er->createQueryBuilder('ga')
-//                        ->orderBy('ga.nombreGrupo', 'ASC');
+//                    return $er->createQueryBuilder('p')
+//                        ->orderBy('p.apellido', 'ASC');
 //                    },
-//                'choice_label' => function ($grupoActividad) {
-//                      return $grupoActividad->getNombreGrupo();
+//                'choice_label' => function ($perito) {
+//                      $str = ", ";
+//                      return "{$perito->getApellido()}{$str}{$perito->getNombre()}";
 //                }
 //            ])
-//            ->add('idactividad', DependentFilteredEntityType::class, [
-//                'entity_alias' => 'actividad_by_grupoActividad',
-//                'parent_field' => 'grupoActividad',
-//            ]);
             
-            ->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'))
-            ->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
-            
+//            ->add('representantes', CollectionType::class, [
+//            'label' => false,
+//            'block_name' => 'representantes',
+//            'entry_type' => RepresentanteType::class,
+//            'entry_options' => ['label' => false],
+//            'allow_add' => true,
+//            'by_reference' => false,
+//            'allow_delete' => true,
+//            ])
+                        
+//            ->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'))
+//            ->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'))
+//            
     
-   
+                ;
     }
     
     protected function addElements(FormInterface $form, Grupoactividad $grupoActividad = null) {
@@ -150,13 +132,16 @@ class EmpresaType extends AbstractType
     }
 
     function onPreSetData(FormEvent $event) {
-        $empresa = $event->getData();
-        $form = $event->getForm();
-        
-        // When you create a new person, the City is always empty
-        $grupoActividad = $empresa ? $empresa->getGrupoActividad() : null;
+        if (null != $event->getData()) {
+    
+            $empresa = $event->getData();
+            $form = $event->getForm();
 
-        $this->addElements($form, $grupoActividad);
+            // When you create a new person, the City is always empty
+            $grupoActividad = $empresa->getGrupoActividad() ? $empresa->getGrupoActividad() : null;
+
+            $this->addElements($form, $grupoActividad);
+        }
     }
     
         

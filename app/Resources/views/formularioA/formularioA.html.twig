@@ -92,29 +92,28 @@
                     
             </table>
                     
-           {# <h1>Listado de Actividades:</h1>
+           <h1>Listado de Actividades:</h1>
             <table class="table table-striped">
 
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Calle</th>
-                        <th scope="col">Numero</th>
-                        <th scope="col">Piso</th>
-                        <th scope="col">Dto</th>
+                        <th scope="col">Actividad</th>
+                        <th scope="col">CUACM</th>
+                        <th scope="col">Estandar Ambiental</th>
                         <th scope="col">Tipo</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    {% for domicilio in domicilios %}
+                    {% for actividad in formulario.empresa.idactividad %}
                         <tr>
-                            <th scope="row">{{ domicilio.calle }}</th>
-                            <td>{{ domicilio.numero }}</td>
-                            <td>{{ domicilio.piso }}</td>
-                            <td>{{ domicilio.depto }}</td>
-                            <td>{{ domicilio.tipo }}</td>
+                            <th scope="row">{{ actividad.nombre }}</th>
+                            <td>{{ actividad.cuacm }}</td>
+                            <td>{{ actividad.estandarambiental }}</td>
+                            
+                            
                             <td>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_modificar', {'id' : domicilio.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setActividad', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
                                 <button type="button" class="btn btn-primary" >Eliminar</button>
                                 
                             </td>
@@ -122,17 +121,17 @@
                         
                     {% else %}
                         <tr>
-                            <th scope="row" colspan="5">No se encontraron resultados.</th>
+                            <th scope="row" colspan="4">No se encontraron resultados.</th>
                             
                         </tr>
                     {% endfor %}
                     <td>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setActividad', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Nuevo</button>
                     </td>
                     
                 </tbody>
                     
-            </table>#}
+            </table>
             
             <h1>Listado de Representanes:</h1>
             <table class="table table-striped">

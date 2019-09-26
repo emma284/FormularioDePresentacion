@@ -77,7 +77,7 @@ class Empresa
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa", cascade={"persist"})
      * @ORM\JoinTable(name="actividadempresa",
      *   joinColumns={
      *     @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
@@ -87,14 +87,14 @@ class Empresa
      *   }
      * )
      */
-    private $idactividad;
+    protected $idactividad;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-//        $this->idactividad = new ArrayCollection();
+        $this->idactividad = new ArrayCollection();
         $this->representantes = new ArrayCollection();
         
     }

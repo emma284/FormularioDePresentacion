@@ -21,6 +21,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\DomicilioType;
 
+// Include JSON Response
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 class DomicilioController extends Controller
 {
     
@@ -93,6 +96,42 @@ class DomicilioController extends Controller
             'form' => $form->createView(),
             'formulario' => $formulario,
         ]);
+    }
+    
+    /**
+     * Returns a JSON string with the neighborhoods of the City with the providen id.
+     * @Route("/domicilio/dependent", name="domicilio_list_localidades", defaults={"_controller": "AppBundle:Controller:DomicilioController:listLocalidadesOfDepartamentoAction"}, methods="GET")
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function listLocalidadesOfDepartamentoAction(Request $request)
+    {
+        // Get Entity manager and repository
+        $em = $this->getDoctrine()->getManager();
+        $localidadesRepository = $em->getRepository("AppBundle:Localidad");
+        
+        // Search the neighborhoods that belongs to the city with the given id as GET parameter "cityid"
+        $localidades = $localidadesRepository->createQueryBuilder("q")
+            ->where("q.idDepartamento = :idDto")
+            ->setParameter("idDto", $request->query->get("idDto"))
+            ->getQuery()
+            ->getResult();
+        
+        // Serialize into an array the data that we need, in this case only name and id
+        // Note: you can use a serializer as well, for explanation purposes, we'll do it manually
+        $responseArray = array();
+        foreach($localidades as $localidad){
+            $responseArray[] = array(
+                "id" => $localidad->getId(),
+                "name" => $localidad->getNombreLocalidad()
+            );
+        }
+        
+        // Return array with structure of the neighborhoods of the providen city id
+        return new JsonResponse($responseArray);
+
+        // e.g
+        // [{"id":"3","name":"Treasure Island"},{"id":"4","name":"Presidio of San Francisco"}]
     }
     
 }

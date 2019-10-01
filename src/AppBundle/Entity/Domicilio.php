@@ -13,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Domicilio
 {
+    protected $departamento;
+    
     /**
      * @var string
      *
@@ -117,14 +119,14 @@ class Domicilio
     private $idpartida;
 
     /**
-     * @var \AppBundle\Entity\Localidades
+     * @var \AppBundle\Entity\Localidad
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Localidades")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Localidad")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idLocalidad", referencedColumnName="id")
      * })
      */
-    private $idlocalidad;
+    private $idLocalidad;
 
 
 
@@ -403,26 +405,38 @@ class Domicilio
     }
 
     /**
-     * Set idlocalidad
+     * Set idLocalidad
      *
-     * @param \AppBundle\Entity\Localidades $idlocalidad
+     * @param \AppBundle\Entity\Localidad $idLocalidad
      *
      * @return Domicilio
      */
-    public function setIdlocalidad(\AppBundle\Entity\Localidades $idlocalidad = null)
+    public function setIdLocalidad(\AppBundle\Entity\Localidad $idLocalidad = null)
     {
-        $this->idlocalidad = $idlocalidad;
+        $this->idLocalidad = $idLocalidad;
 
         return $this;
     }
 
     /**
-     * Get idlocalidad
+     * Get idLocalidad
      *
-     * @return \AppBundle\Entity\Localidades
+     * @return \AppBundle\Entity\Localidad
      */
-    public function getIdlocalidad()
+    public function getIdLocalidad()
     {
-        return $this->idlocalidad;
+        return $this->idLocalidad;
+    }
+    
+     public function setDepartamento($departamento)
+    {
+        $this->departamento = $departamento;
+
+        return $this;
+    }
+
+    public function getDepartamento()
+    {
+        return $this->departamento;
     }
 }

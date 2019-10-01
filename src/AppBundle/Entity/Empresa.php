@@ -77,7 +77,7 @@ class Empresa
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa")
      * @ORM\JoinTable(name="actividadempresa",
      *   joinColumns={
      *     @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
@@ -283,6 +283,13 @@ class Empresa
     public function getIdactividad()
     {
         return $this->idactividad;
+    }
+    
+    public function setIdactividad($idactividad)
+    {
+        $this->idactividad[] = $idactividad;
+
+        return $this;
     }
     
     public function setGrupoActividad($grupoActividad)

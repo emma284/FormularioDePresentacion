@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Localidades
+ * Localidad
  *
- * @ORM\Table(name="localidades", indexes={@ORM\Index(name="idDepartamento", columns={"idDepartamento"}), @ORM\Index(name="idNodo", columns={"idNodo"})})
+ * @ORM\Table(name="localidad", indexes={@ORM\Index(name="idDepartamento", columns={"idDepartamento"}), @ORM\Index(name="idNodo", columns={"idNodo"})})
  * @ORM\Entity
  */
-class Localidades
+class Localidad
 {
     /**
      * @var string
@@ -43,14 +43,14 @@ class Localidades
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Departamentos
+     * @var \AppBundle\Entity\Departamento
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Departamentos")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Departamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idDepartamento", referencedColumnName="id")
      * })
      */
-    private $iddepartamento;
+    private $idDepartamento;
 
     /**
      * @var \AppBundle\Entity\Nodos
@@ -60,7 +60,7 @@ class Localidades
      *   @ORM\JoinColumn(name="idNodo", referencedColumnName="id")
      * })
      */
-    private $idnodo;
+    private $idNodo;
 
 
 
@@ -69,7 +69,7 @@ class Localidades
      *
      * @param string $nombreLocalidad
      *
-     * @return Localidades
+     * @return Localidad
      */
     public function setNombreLocalidad($nombreLocalidad)
     {
@@ -93,7 +93,7 @@ class Localidades
      *
      * @param string $categoria
      *
-     * @return Localidades
+     * @return Localidad
      */
     public function setCategoria($categoria)
     {
@@ -117,7 +117,7 @@ class Localidades
      *
      * @param string $codigoPostal
      *
-     * @return Localidades
+     * @return Localidad
      */
     public function setCodigoPostal($codigoPostal)
     {
@@ -147,50 +147,50 @@ class Localidades
     }
 
     /**
-     * Set iddepartamento
+     * Set idDepartamento
      *
-     * @param \AppBundle\Entity\Departamentos $iddepartamento
+     * @param \AppBundle\Entity\Departamento $idDepartamento
      *
-     * @return Localidades
+     * @return Localidad
      */
-    public function setIddepartamento(\AppBundle\Entity\Departamentos $iddepartamento = null)
+    public function setIdDepartamento(\AppBundle\Entity\Departamento $idDepartamento = null)
     {
-        $this->iddepartamento = $iddepartamento;
+        $this->idDepartamento = $idDepartamento;
 
         return $this;
     }
 
     /**
-     * Get iddepartamento
+     * Get idDepartamento
      *
-     * @return \AppBundle\Entity\Departamentos
+     * @return \AppBundle\Entity\Departamento
      */
-    public function getIddepartamento()
+    public function getIdDepartamento()
     {
-        return $this->iddepartamento;
+        return $this->idDepartamento;
     }
 
     /**
-     * Set idnodo
+     * Set idNodo
      *
-     * @param \AppBundle\Entity\Nodos $idnodo
+     * @param \AppBundle\Entity\Nodos $idNodo
      *
-     * @return Localidades
+     * @return Localidad
      */
-    public function setIdnodo(\AppBundle\Entity\Nodos $idnodo = null)
+    public function setIdNodo(\AppBundle\Entity\Nodos $idNodo = null)
     {
-        $this->idnodo = $idnodo;
+        $this->idNodo = $idNodo;
 
         return $this;
     }
 
     /**
-     * Get idnodo
+     * Get idNodo
      *
      * @return \AppBundle\Entity\Nodos
      */
-    public function getIdnodo()
+    public function getIdNodo()
     {
-        return $this->idnodo;
+        return $this->idNodo;
     }
 }

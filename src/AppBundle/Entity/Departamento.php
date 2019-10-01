@@ -5,19 +5,19 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Departamentos
+ * Departamento
  *
- * @ORM\Table(name="departamentos")
+ * @ORM\Table(name="departamento")
  * @ORM\Entity
  */
-class Departamentos
+class Departamento
 {
     /**
      * @var string
      *
      * @ORM\Column(name="nombreDepartamento", type="string", length=50, nullable=false)
      */
-    private $nombredepartamento;
+    private $nombreDepartamento;
 
     /**
      * @var integer
@@ -31,27 +31,27 @@ class Departamentos
 
 
     /**
-     * Set nombredepartamento
+     * Set nombreDepartamento
      *
-     * @param string $nombredepartamento
+     * @param string $nombreDepartamento
      *
-     * @return Departamentos
+     * @return Departamento
      */
-    public function setNombredepartamento($nombredepartamento)
+    public function setNombreDepartamento($nombreDepartamento)
     {
-        $this->nombredepartamento = $nombredepartamento;
+        $this->nombreDepartamento = $nombreDepartamento;
 
         return $this;
     }
 
     /**
-     * Get nombredepartamento
+     * Get nombreDepartamento
      *
      * @return string
      */
-    public function getNombredepartamento()
+    public function getNombreDepartamento()
     {
-        return $this->nombredepartamento;
+        return $this->nombreDepartamento;
     }
 
     /**

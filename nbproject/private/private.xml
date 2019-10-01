@@ -4,9 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/EmpresaType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Actividad.php</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/formularioA.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/ActividadEmpresaType.php</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/EmpresaController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/FormularioAController.php</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Empresa.php</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/setActividad.html.twig</file>
         </group>

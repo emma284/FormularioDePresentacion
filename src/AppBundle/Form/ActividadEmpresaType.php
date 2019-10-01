@@ -8,6 +8,7 @@ use AppBundle\Entity\Empresa;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\Grupoactividad;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -42,42 +43,37 @@ class ActividadEmpresaType extends AbstractType
         // 4. Add the province element
         $form->add('grupoActividad', EntityType::class, array(
             'label' => 'Grupo de Actividad',
-            'mapped' => false,
             'required' => true,
             'data' => $grupoActividad,
-            'placeholder' => 'Select a City...',
+            'placeholder' => 'Seleccione un Grupo de Actividad...',
             'class' => 'AppBundle:Grupoactividad',
             'choice_label' => function ($grupoActividad) {
                       return $grupoActividad->getNombreGrupo();
                 },
         ));
-                
-        // Neighborhoods empty, unless there is a selected City (Edit View)
-        $actividades = array();
+
+        if($grupoActividad)
+            {$idgrupo = $grupoActividad->getId();}
+        else{$idgrupo = 0;}
         
-        // If there is a city stored in the Person entity, load the neighborhoods of it
-        if ($grupoActividad) {
-            // Fetch Neighborhoods of the City if there's a selected city
-//            $repoNeighborhood = $this->em->getRepository('AppBundle:Neighborhood');
-//            $entityManager = $this->getDoctrine()->getManager();
-              $repoActividades = $this->em->getRepository('AppBundle:Actividad');
-            
-            $actividades = $repoActividades->createQueryBuilder("q")
-                ->where("q.idgrupo = :grupoid")
-                ->setParameter("grupoid", $grupoActividad->getId())
-                ->getQuery()
-                ->getResult();
-        }
-        // Add the Neighborhoods field with the properly data
         $form->add('idactividad', EntityType::class, array(
-            'label' => 'Actividad',
-            'required' => true,
-            'placeholder' => 'Select a City first ...',
-            'class' => 'AppBundle:Actividad',
-            'choices' => $actividades
-        ));
+          'label' => 'Actividad',
+//          'mapped' => false,
+          'required' => true,
+          'placeholder' => 'Seleccione un Grupo de Actividad primero ...',
+          'class' => 'AppBundle:Actividad',
+          'query_builder' => function (EntityRepository $er) use ($idgrupo) {
+              return $er->createQueryBuilder('q')
+                  ->where("q.idgrupo = :grupoid")
+                  ->setParameter("grupoid", $idgrupo);
+            }
+//            'choices' => $actividades            
+            ));
+            
+
         
-        }
+        
+    }
         
     function onPreSubmit(FormEvent $event) {
         $form = $event->getForm();
@@ -85,8 +81,31 @@ class ActividadEmpresaType extends AbstractType
 
         // Search for selected City and convert it into an Entity
         $grupoActividad = $this->em->getRepository('AppBundle:Grupoactividad')->find($data['grupoActividad']);
-
         $this->addElements($form, $grupoActividad);
+//        if ($grupoActividad) {
+////            // Fetch Neighborhoods of the City if there's a selected city
+//////            $repoNeighborhood = $this->em->getRepository('AppBundle:Neighborhood');
+//////            $entityManager = $this->getDoctrine()->getManager();
+//            $repoActividades = $this->em->getRepository('AppBundle:Actividad');
+//
+//
+//            $actividades = $repoActividades->createQueryBuilder("q")
+//              ->where("q.idgrupo = :grupoid")
+//              ->setParameter("grupoid", $grupoActividad->getId())
+//              ->getQuery()
+//              ->getResult();
+//        }
+//        // Add the Neighborhoods field with the properly data
+//        $form->add('idactividad', EntityType::class, array(
+//            'required' => true,
+//            'placeholder' => 'Select a City first ...',
+//            'class' => 'AppBundle:Actividad',
+//            'query_builder' => function (EntityRepository $er) use ($grupoActividad){
+//              return $er->createQueryBuilder('q')
+//                  ->where("q.idgrupo = :grupoid")
+//                  ->setParameter("grupoid", $grupoActividad->getId());
+//            }           
+//            ));
     }
 
     function onPreSetData(FormEvent $event) {

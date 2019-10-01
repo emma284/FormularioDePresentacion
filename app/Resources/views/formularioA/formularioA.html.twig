@@ -55,6 +55,8 @@
 
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Localidad</th>
                         <th scope="col">Calle</th>
                         <th scope="col">Numero</th>
                         <th scope="col">Piso</th>
@@ -66,7 +68,9 @@
                 <tbody>
                     {% for domicilio in domicilios %}
                         <tr>
-                            <th scope="row">{{ domicilio.calle }}</th>
+                            <th scope="row">{{ domicilio.idLocalidad.idDepartamento.nombreDepartamento }}</th>
+                            <td>{{ domicilio.idLocalidad.nombreLocalidad }}</td>
+                            <td>{{ domicilio.calle }}</td>
                             <td>{{ domicilio.numero }}</td>
                             <td>{{ domicilio.piso }}</td>
                             <td>{{ domicilio.depto }}</td>
@@ -107,9 +111,9 @@
                 <tbody>
                     {% for actividad in formulario.empresa.idactividad %}
                         <tr>
-                            <th scope="row">{{ actividad.nombre }}</th>
+                            <th scope="row">{{ actividad.nombreactividad }}</th>
                             <td>{{ actividad.cuacm }}</td>
-                            <td>{{ actividad.estandarambiental }}</td>
+                            <td>{{ actividad.estandar }}</td>
                             
                             
                             <td>

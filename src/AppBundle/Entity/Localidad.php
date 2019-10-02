@@ -193,4 +193,9 @@ class Localidad
     {
         return $this->idNodo;
     }
+    
+    public function __toString() 
+    {
+        return $this->getNombreLocalidad();
+    }
 }

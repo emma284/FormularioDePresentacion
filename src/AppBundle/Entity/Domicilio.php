@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Domicilio
 {
+    /**
+     * @var type
+     * @Assert\NotBlank(message="Este campo no puede ser vacio") 
+     */
     protected $departamento;
     
     /**
@@ -125,6 +129,7 @@ class Domicilio
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idLocalidad", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Este campo no puede ser vacio")
      */
     private $idLocalidad;
 

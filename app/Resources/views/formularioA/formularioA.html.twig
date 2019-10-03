@@ -3,6 +3,19 @@
 {{ form_widget(form) }}
 {{ form_end(form) }} #}
 
+{% block breadcrumb %}
+    <div class="row">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                {% block breadcrumbItems %}
+                    <li class="breadcrumb-item"><a href="/formulario/listado/">ListadoDeFormularios</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">FormularioA</li>
+                {% endblock %}
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+
 {% block content %}
     {% for message in app.flashes('notice') %}
         <div class='flash-notice'>
@@ -17,7 +30,7 @@
             <table class="table table-striped">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Resumen ejecutivo</th>
+                        <th scope="col">Resumen Ejecutivo</th>
                     </tr>
                 </thead>
 
@@ -48,7 +61,7 @@
                     </tr>
                 </tbody>
             </table>        
-                    
+            <div>&nbsp;</div>        
         
             <h1>Listado de Domicilios:</h1>
             <table class="table table-striped">
@@ -91,10 +104,9 @@
                     <td>
                         <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
                     </td>
-                    
                 </tbody>
-                    
             </table>
+            <div>&nbsp;</div>
                     
            <h1>Listado de Actividades:</h1>
             <table class="table table-striped">
@@ -104,7 +116,7 @@
                         <th scope="col">Actividad</th>
                         <th scope="col">CUACM</th>
                         <th scope="col">Estandar Ambiental</th>
-                        <th scope="col">Tipo</th>
+                        
                     </tr>
                 </thead>
 
@@ -117,8 +129,7 @@
                             
                             
                             <td>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setActividad', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
-                                <button type="button" class="btn btn-primary" >Eliminar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('actividad_eliminar', {'id' : actividad.id, 'formulario_id' : formulario.id }) }}'">Eliminar</button>
                                 
                             </td>
                         </tr>
@@ -132,12 +143,11 @@
                     <td>
                         <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setActividad', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Nuevo</button>
                     </td>
-                    
                 </tbody>
-                    
             </table>
+            <div>&nbsp;</div>
             
-            <h1>Listado de Representanes:</h1>
+            <h1>Listado de Representantes:</h1>
             <table class="table table-striped">
 
                 <thead class="thead-dark">
@@ -159,7 +169,7 @@
                             <td>{{ representante.cargo }}</td>
                             <td>{{ representante.tipo }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" >Editar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('representante_modificar', {'id' : representante.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
                                 <button type="button" class="btn btn-primary">Eliminar</button>
                                 {#onclick="window.location.href = '{{ path('') }}#}
                             </td>
@@ -173,11 +183,10 @@
                     {% endfor %}
                     <td>
                         <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('representante_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
-                    </td>
-                    
-                </tbody>
-                    
+                    </td>  
+                </tbody>     
             </table>
+            <div>&nbsp;</div>
             
             <h1>Perito:</h1>
             <table class="table table-striped">
@@ -212,9 +221,9 @@
                     {% endif %}  
                 </tbody>
             </table>        
-                    
+            <div>&nbsp;</div>        
             <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('listar_formularios') }}'">Volver</button>       
-        
+            <button type="button" class="btn btn-primary">Cerrar Formulario A</button>
         </div>
     </div>
 

@@ -10,6 +10,7 @@ use AppBundle\Form\SetPeritoEmpresaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Entity\Actividad;
 
 // Include JSON Response
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -46,7 +47,7 @@ class EmpresaController extends Controller
     }
     
     /**
-     * @Route("/empresa/modificar/{id}_{formulario_id}", name="empresa_setPerito")
+     * @Route("/empresa/perito/modificar/{id}_{formulario_id}", name="empresa_setPerito")
      */
     public function EmpresaNuevoPeritoAction(Request $request, $id, $formulario_id)
     {
@@ -80,7 +81,7 @@ class EmpresaController extends Controller
     }
     
      /**
-     * @Route("/empresa/modificarAct/{id}_{formulario_id}", name="empresa_setActividad")
+     * @Route("/empresa/actividad/modificar/{id}_{formulario_id}", name="empresa_setActividad")
      */
     public function ActividadEmpresaNuevoAction(Request $request, $id, $formulario_id)
     {
@@ -91,8 +92,8 @@ class EmpresaController extends Controller
             ->find($id);
         
         $formulario = $entityManager
-                        ->getRepository(FormularioA::class)
-                        ->find($formulario_id);
+            ->getRepository(FormularioA::class)
+            ->find($formulario_id);
         
         $form = $this->createForm(ActividadEmpresaType::class, $empresa);
 
@@ -150,6 +151,35 @@ class EmpresaController extends Controller
         // [{"id":"3","name":"Treasure Island"},{"id":"4","name":"Presidio of San Francisco"}]
     }
     
+    /**
+     * @Route("/empresa/actividad/eliminar/{id}_{formulario_id}", name="actividad_eliminar")
+     */
+    public function empresaEliminarActividadAction(Request $request, $id, $formulario_id)
+    {
+            
+        $entityManager = $this->getDoctrine()->getManager();
+        
+        $formulario = $entityManager
+            ->getRepository(FormularioA::class)
+            ->find($formulario_id);
+
+        $empresa = $formulario->getEmpresa();
+
+        $actividad = $entityManager
+            ->getRepository(Actividad::class)
+            ->find($id);
+
+        $empresa->removeIdactividad($actividad);
+
+        $entityManager->flush();
+
+//        $this->addFlash(
+//            'notice',
+//            'La actividad se borró exitosamente.'
+//       );
+
+       return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
+    } 
 }
 
 

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Actividad
@@ -16,6 +17,7 @@ class Actividad
      * @var integer
      *
      * @ORM\Column(name="cuacm", type="integer", nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $cuacm;
 
@@ -23,6 +25,7 @@ class Actividad
      * @var string
      *
      * @ORM\Column(name="nombreActividad", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $nombreactividad;
 
@@ -30,6 +33,7 @@ class Actividad
      * @var integer
      *
      * @ORM\Column(name="estandar", type="integer", nullable=true)
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     private $estandar;
 
@@ -206,5 +210,10 @@ class Actividad
     public function getIdempresa()
     {
         return $this->idempresa;
+    }
+    
+    public function __toString() 
+    {
+        return $this->getNombreactividad();
     }
 }

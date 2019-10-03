@@ -60,4 +60,39 @@ class RepresentanteController extends Controller
         ]);
     }
     
+    /**
+     * @Route("/representante/modificar/{id}_{formulario_id}", name="representante_modificar")
+     */
+    public function representanteModificarAction(Request $request, $id, $formulario_id)
+    {
+            
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $representante = $entityManager
+            ->getRepository(Representante::class)
+            ->find($id);
+
+        $form = $this->createForm(RepresentanteType::class, $representante);
+
+        $form->handleRequest($request);
+        
+        $formulario = $entityManager
+                        ->getRepository(FormularioA::class)
+                        ->find($formulario_id);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $representante = $form->getData();
+
+            $entityManager->flush();
+            
+            return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
+
+        }
+        return $this->render('news/representante_new.html.twig',[
+            'form' => $form->createView(),
+            'formulario' => $formulario,
+        ]);
+    }
+    
 }

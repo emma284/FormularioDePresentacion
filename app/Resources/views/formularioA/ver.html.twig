@@ -3,6 +3,19 @@
 {{ form_widget(form) }}
 {{ form_end(form) }} #}
 
+{% block breadcrumb %}
+    <div class="row">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                {% block breadcrumbItems %}
+                    <li class="breadcrumb-item"><a href="#">ListadoDeFormularios</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">FormularioA</li>
+                {% endblock %}
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+
 {% block content %}
 
     

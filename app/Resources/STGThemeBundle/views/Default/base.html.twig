@@ -102,9 +102,12 @@
 
 {% block main %}
     <main role="main" class="container">
-
-
-        <div class="row row-top">
+        <div class="col-lg-12">
+            <div>&nbsp;</div>{# Espacio en blanco p/separar botones #}
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+        </div>
+        {#<div class="row row-top">
 
             <div class="col-lg-12">
                 <h1>{{ datos_encabezado_title | default('Carga de domicilio') }}</h1>
@@ -117,7 +120,7 @@
                 {% endblock %}
             </div>
 
-        </div>
+        </div>#}
 
         {% block breadcrumb %}
             <div class="row">

@@ -16,8 +16,13 @@ class Empresa
 {
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Representante", cascade={"persist"})
+     * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     protected $representantes;
+    
+    /**
+     * 
+     */
     protected $grupoActividad;
 
 
@@ -71,12 +76,15 @@ class Empresa
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idPerito", referencedColumnName="id")
      * })
+     * 
      */
     private $idperito;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
+     * 
+     * 
+     * 
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa")
      * @ORM\JoinTable(name="actividadempresa",
      *   joinColumns={
@@ -86,6 +94,7 @@ class Empresa
      *     @ORM\JoinColumn(name="idActividad", referencedColumnName="id")
      *   }
      * )
+     *
      */
     protected $idactividad;
 

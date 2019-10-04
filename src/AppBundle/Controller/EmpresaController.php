@@ -102,7 +102,7 @@ class EmpresaController extends Controller
         if($form->isSubmitted() && $form->isValid()){
 
             $empresa = $form->getData();
-//            $entityManager->persist($empresa);
+
             $entityManager->flush();
             
             return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));

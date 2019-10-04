@@ -47,9 +47,8 @@ class DomicilioController extends Controller
         if($form->isSubmitted() && $form->isValid()){
 
             $domicilio = $form->getData();
-            
-            
             $domicilio->setEmpresa($formulario->getEmpresa());
+            
             $entityManager->persist($domicilio);
             $entityManager->flush();
             
@@ -96,6 +95,30 @@ class DomicilioController extends Controller
             'form' => $form->createView(),
             'formulario' => $formulario,
         ]);
+    }
+    
+    /**
+     * @Route("/formulario/domicilio/{id}_{formulario_id}", name="domicilio_eliminar")
+     */
+    public function domicilioEliminarAction(Request $request, $id, $formulario_id)
+    {
+            
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $domicilio = $entityManager
+            ->getRepository(Domicilio::class)
+            ->find($id);
+
+        $entityManager->remove($domicilio);
+
+        $entityManager->flush();
+
+//        $this->addFlash(
+//            'notice',
+//            'El domicilio se borró exitosamente.'
+//        );
+
+        return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
     }
     
     /**

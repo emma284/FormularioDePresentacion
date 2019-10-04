@@ -5,10 +5,12 @@
         <group>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/setPerito.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/formularioA.html.twig</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/SetPeritoEmpresaType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/listar.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/FormularioA.php</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/EmpresaController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/FormularioAController.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/STGThemeBundle/views/Default/base.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Empresa.php</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/setActividad.html.twig</file>
         </group>
     </open-files>
 </project-private>

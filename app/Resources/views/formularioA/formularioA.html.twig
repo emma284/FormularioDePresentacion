@@ -90,7 +90,7 @@
                             <td>{{ domicilio.tipo }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_modificar', {'id' : domicilio.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
-                                <button type="button" class="btn btn-primary" >Eliminar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('domicilio_eliminar', {'id' : domicilio.id, 'formulario_id' : formulario.id }) }}'">Eliminar</button>
                                 
                             </td>
                         </tr>

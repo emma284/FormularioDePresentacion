@@ -170,8 +170,7 @@
                             <td>{{ representante.tipo }}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('representante_modificar', {'id' : representante.id, 'formulario_id' : formulario.id }) }}'">Modificar</button>
-                                <button type="button" class="btn btn-primary">Eliminar</button>
-                                {#onclick="window.location.href = '{{ path('') }}#}
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('representante_eliminar', {'id' : representante.id, 'formulario_id' : formulario.id }) }}'">Eliminar</button>                                
                             </td>
                         </tr>
                         

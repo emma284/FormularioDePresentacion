@@ -95,4 +95,28 @@ class RepresentanteController extends Controller
         ]);
     }
     
+    /**
+     * @Route("/formulario/representante/{id}_{formulario_id}", name="representante_eliminar")
+     */
+    public function representanteEliminarAction(Request $request, $id, $formulario_id)
+    {
+            
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $representante = $entityManager
+            ->getRepository(Representante::class)
+            ->find($id);
+
+        $entityManager->remove($representante);
+
+        $entityManager->flush();
+
+//        $this->addFlash(
+//            'notice',
+//            'El representante se borró exitosamente.'
+//        );
+
+        return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
+    }
+    
 }

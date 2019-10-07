@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 
 class ActividadEmpresaType extends AbstractType
@@ -44,6 +45,9 @@ class ActividadEmpresaType extends AbstractType
         $form->add('grupoActividad', EntityType::class, array(
             'label' => 'Grupo de Actividad',
             'required' => true,
+            'constraints' => [
+                    new NotNull(['message'=>"Debe seleccionar una opción"]),
+                ],
             'data' => $grupoActividad,
             'placeholder' => 'Seleccione un Grupo de Actividad...',
             'class' => 'AppBundle:Grupoactividad',
@@ -57,18 +61,19 @@ class ActividadEmpresaType extends AbstractType
         else{$idgrupo = 0;}
         
         $form->add('idactividad', EntityType::class, array(
-          'label' => 'Actividad',
-//          'mapped' => false,
-          'required' => true,
-          'placeholder' => 'Seleccione un Grupo de Actividad primero ...',
-          'class' => 'AppBundle:Actividad',
-          'query_builder' => function (EntityRepository $er) use ($idgrupo) {
-              return $er->createQueryBuilder('q')
-                  ->where("q.idgrupo = :grupoid")
-                  ->setParameter("grupoid", $idgrupo);
-            }
-//            'choices' => $actividades            
-            ));
+            'label' => 'Actividad',
+            'constraints' => [
+                      new NotNull(['message'=>"Debe seleccionar una opción"]),
+                  ],
+            'required' => true,
+            'placeholder' => 'Seleccione un Grupo de Actividad primero ...',
+            'class' => 'AppBundle:Actividad',
+            'query_builder' => function (EntityRepository $er) use ($idgrupo) {
+                return $er->createQueryBuilder('q')
+                    ->where("q.idgrupo = :grupoid")
+                    ->setParameter("grupoid", $idgrupo);
+              }        
+              ));
             
 
         

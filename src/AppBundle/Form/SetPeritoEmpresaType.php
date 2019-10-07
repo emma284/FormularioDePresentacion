@@ -8,6 +8,7 @@ use AppBundle\Entity\Empresa;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 
 
@@ -18,6 +19,9 @@ class SetPeritoEmpresaType extends AbstractType
     {
         $builder->add('idperito', EntityType::class, [
                 'label' => false,
+                'constraints' => [
+                      new NotNull(['message'=>"Debe seleccionar una opción"]),
+                  ],
                 'placeholder' => 'Elija una opción',
                 'class' => 'AppBundle:Perito',
                 'query_builder' => function (EntityRepository $er) {

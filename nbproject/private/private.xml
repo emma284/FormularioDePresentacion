@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/setPerito.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/fields.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/modificar.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/formularioA.html.twig</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/listar.html.twig</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/FormularioA.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/SetPeritoEmpresaType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/DomicilioType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/news/domicilio_new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Form/ActividadEmpresaType.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/formularioA/new.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/EmpresaController.php</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Controller/FormularioAController.php</file>
-            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/STGThemeBundle/views/Default/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/default/new.html.twig</file>
             <file>file:/C:/xampp/htdocs/FormularioDePresentacion/src/AppBundle/Entity/Empresa.php</file>
+            <file>file:/C:/xampp/htdocs/FormularioDePresentacion/app/Resources/views/base.html.twig</file>
         </group>
     </open-files>
 </project-private>

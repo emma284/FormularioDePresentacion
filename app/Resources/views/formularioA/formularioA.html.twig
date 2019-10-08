@@ -116,20 +116,20 @@
                         <th scope="col">Actividad</th>
                         <th scope="col">CUACM</th>
                         <th scope="col">Estandar Ambiental</th>
-                        
+                        <th scope="col">Prioridad</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    {% for actividad in formulario.empresa.idactividad %}
+                    {% for actividadEmpresa in formulario.empresa.actividadEmpresa %}
                         <tr>
-                            <th scope="row">{{ actividad.nombreactividad }}</th>
-                            <td>{{ actividad.cuacm }}</td>
-                            <td>{{ actividad.estandar }}</td>
-                            
+                            <th scope="row">{{ actividadEmpresa.idactividad.nombreactividad }}</th>
+                            <td>{{ actividadEmpresa.idactividad.cuacm }}</td>
+                            <td>{{ actividadEmpresa.idactividad.estandar }}</td>
+                            <td>{{ actividadEmpresa.prioridad }}</td>
                             
                             <td>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('actividad_eliminar', {'id' : actividad.id, 'formulario_id' : formulario.id }) }}'">Eliminar</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('actividad_eliminar', {'id' : actividadEmpresa.id, 'formulario_id' : formulario.id }) }}'">Eliminar</button>
                                 
                             </td>
                         </tr>
@@ -141,7 +141,7 @@
                         </tr>
                     {% endfor %}
                     <td>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('empresa_setActividad', {'id' : formulario.empresa.id, 'formulario_id' : formulario.id }) }}'">Nuevo</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = '{{ path('actividadEmpresa_nuevo', {'formulario_id' : formulario.id }) }}'">Nuevo</button>
                     </td>
                 </tbody>
             </table>

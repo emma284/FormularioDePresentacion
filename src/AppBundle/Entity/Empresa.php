@@ -19,13 +19,6 @@ class Empresa
      * @Assert\NotBlank(message="No puede dejar en blanco")
      */
     protected $representantes;
-    
-    /**
-     * 
-     */
-    protected $grupoActividad;
-
-
 
 
     /**
@@ -83,27 +76,19 @@ class Empresa
     /**
      * @var \Doctrine\Common\Collections\Collection
      * 
-     * 
-     * 
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Actividad", inversedBy="idempresa")
-     * @ORM\JoinTable(name="actividadempresa",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idActividad", referencedColumnName="id")
-     *   }
-     * )
+     *
+     * @ORM\OneToMany(targetEntity="ActividadEmpresa", mappedBy="idempresa", fetch="EXTRA_LAZY")
+     *
      *
      */
-    protected $idactividad;
+    protected $actividadEmpresa;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idactividad = new ArrayCollection();
+        $this->actividadEmpresa = new ArrayCollection();
         $this->representantes = new ArrayCollection();
         
     }
@@ -261,55 +246,44 @@ class Empresa
     }
 
     /**
-     * Add idactividad
+     * Add actividadEmpresa
      *
-     * @param \AppBundle\Entity\Actividad $idactividad
+     * @param \AppBundle\Entity\ActividadEmpresa $actividadEmpresa
      *
      * @return Empresa
      */
-    public function addIdactividad(\AppBundle\Entity\Actividad $idactividad)
+    public function addActividadEmpresa(\AppBundle\Entity\ActividadEmpresa $actividadEmpresa)
     {
-        $this->idactividad[] = $idactividad;
+        $this->actividadEmpresa[] = $actividadEmpresa;
 
         return $this;
     }
 
     /**
-     * Remove idactividad
+     * Remove actividadEmpresa
      *
-     * @param \AppBundle\Entity\Actividad $idactividad
+     * @param \AppBundle\Entity\ActividadEmpresa $actividadEmpresa
      */
-    public function removeIdactividad(\AppBundle\Entity\Actividad $idactividad)
+    public function removeActividadEmpresa(\AppBundle\Entity\Actividad $actividadEmpresa)
     {
-        $this->idactividad->removeElement($idactividad);
+        $this->actividadEmpresa->removeElement($actividadEmpresa);
     }
 
     /**
-     * Get idactividad
+     * Get actividadEmpresa
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getIdactividad()
+    public function getActividadEmpresa()
     {
-        return $this->idactividad;
+        return $this->actividadEmpresa;
     }
     
-    public function setIdactividad($idactividad)
+    public function setActividadEmpresa($actividadEmpresa)
     {
-        $this->idactividad[] = $idactividad;
+        $this->actividadEmpresa[] = $actividadEmpresa;
 
         return $this;
     }
-    
-    public function setGrupoActividad($grupoActividad)
-    {
-        $this->grupoActividad = $grupoActividad;
-
-        return $this;
-    }
-
-    public function getGrupoActividad()
-    {
-        return $this->grupoActividad;
-    }
+   
 }

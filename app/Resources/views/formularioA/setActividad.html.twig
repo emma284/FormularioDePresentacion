@@ -31,6 +31,15 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form_label(form.prioridad) }}
+                        {{ form_widget(form.prioridad, {'attr': {'class': form_errors(form.prioridad) ? 'form-control is-invalid' : 'form-control'}}) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.prioridad) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div>
                         {#{{ form_widget(form.save) }}#}
                         <button type="submit" class="btn btn-primary" formnovalidate>Guardar</button>
@@ -53,7 +62,7 @@
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        $('#appbundle_empresa_grupoActividad').change(function () {
+        $('#appbundle_actividadEmpresa_grupoActividad').change(function () {
             var grupoActividadSelector = $(this);
             
             // Request the neighborhoods of the selected city.
@@ -65,7 +74,7 @@
                     grupoid: grupoActividadSelector.val()
                 },
                 success: function (actividades) {
-                    var actividadSelect = $("#appbundle_empresa_idactividad");
+                    var actividadSelect = $("#appbundle_actividadEmpresa_idactividad");
 //                    console.log(actividadSelect);
                     // Remove current options
                     actividadSelect.html('');

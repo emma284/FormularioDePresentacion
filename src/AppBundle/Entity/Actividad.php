@@ -59,16 +59,16 @@ class Actividad
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Empresa", mappedBy="idactividad")
+     * @ORM\OneToMany(targetEntity="ActividadEmpresa", mappedBy="idactividad")
      */
-    private $idempresa;
+    private $actividadEmpresa;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idempresa = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->actividadEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -179,37 +179,37 @@ class Actividad
     }
 
     /**
-     * Add idempresa
+     * Add actividadEmpresa
      *
-     * @param \AppBundle\Entity\Empresa $idempresa
+     * @param \AppBundle\Entity\Empresa $actividadEmpresa
      *
      * @return Actividad
      */
-    public function addIdempresa(\AppBundle\Entity\Empresa $idempresa)
+    public function addActividadEmpresa(\AppBundle\Entity\Empresa $actividadEmpresa)
     {
-        $this->idempresa[] = $idempresa;
+        $this->actividadEmpresa[] = $actividadEmpresa;
 
         return $this;
     }
 
     /**
-     * Remove idempresa
+     * Remove actividadEmpresa
      *
-     * @param \AppBundle\Entity\Empresa $idempresa
+     * @param \AppBundle\Entity\Empresa $actividadEmpresa
      */
-    public function removeIdempresa(\AppBundle\Entity\Empresa $idempresa)
+    public function removeActividadEmpresa(\AppBundle\Entity\Empresa $actividadEmpresa)
     {
-        $this->idempresa->removeElement($idempresa);
+        $this->actividadEmpresa->removeElement($actividadEmpresa);
     }
 
     /**
-     * Get idempresa
+     * Get actividadEmpresa
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getIdempresa()
+    public function getActividadEmpresa()
     {
-        return $this->idempresa;
+        return $this->actividadEmpresa;
     }
     
     public function __toString() 

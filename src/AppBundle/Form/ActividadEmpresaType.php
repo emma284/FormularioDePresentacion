@@ -4,7 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use AppBundle\Entity\Empresa;
+use AppBundle\Entity\ActividadEmpresa;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\Grupoactividad;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
 class ActividadEmpresaType extends AbstractType
@@ -35,6 +36,13 @@ class ActividadEmpresaType extends AbstractType
     {
         
         $builder
+            ->add('prioridad', ChoiceType::class, [
+                    'placeholder' => 'Elija una opción',
+                    'choices'  => [
+                    'Principal' => 1,
+                    'Secundaria' => 2,
+                ],
+            ])
             ->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'))
             ->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'))
             ;
@@ -116,11 +124,11 @@ class ActividadEmpresaType extends AbstractType
     function onPreSetData(FormEvent $event) {
         if (null != $event->getData()) {
     
-            $empresa = $event->getData();
+            $actividadEmpresa = $event->getData();
             $form = $event->getForm();
 
             // When you create a new person, the City is always empty
-            $grupoActividad = $empresa->getGrupoActividad() ? $empresa->getGrupoActividad() : null;
+            $grupoActividad = $actividadEmpresa->getGrupoActividad() ? $actividadEmpresa->getGrupoActividad() : null;
 
             $this->addElements($form, $grupoActividad);
         }
@@ -130,7 +138,7 @@ class ActividadEmpresaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Empresa::class,
+            'data_class' => ActividadEmpresa::class,
         ]);
     }
     
@@ -139,7 +147,7 @@ class ActividadEmpresaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_empresa';
+        return 'appbundle_actividadEmpresa';
     }
 
 }

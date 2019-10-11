@@ -84,12 +84,11 @@ stg_theme:
         offline: false
         materialize: false
         
-dependent_select:
-    actividad_by_grupoActividad:
-        class: AppBundle:Actividad
-        parent_property: idgrupo
-        property: nombreactividad
-        role: IS_AUTHENTICATED_ANONYMOUSLY
-        no_result_msg: 'No hay actividades para el grupo seleccionado'
-        order_property: nombreactividad
-        order_direction: ASC
+bazinga_geocoder:
+  providers:
+    acme:
+      factory: Bazinga\GeocoderBundle\ProviderFactory\BingMapsFactory
+      options:
+            api_key: 'AoeF5KZxTC6xLMppl6gsUGs3xGHVkqgXFJs-pAqih5kygARAbdITdO5KJDR85ohV'
+        
+        

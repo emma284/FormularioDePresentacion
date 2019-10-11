@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new STG\ThemeBundle\STGThemeBundle(),
             new Evercode\DependentSelectBundle\DependentSelectBundle(),
+            new Bazinga\GeocoderBundle\BazingaGeocoderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

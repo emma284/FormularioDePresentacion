@@ -103,10 +103,10 @@ class ActividadEmpresaController extends Controller
 
         $entityManager->flush();
 
-//        $this->addFlash(
-//            'notice',
-//            'La actividad se borró exitosamente.'
-//       );
+        $this->addFlash(
+            'notice',
+            'La actividad se borró exitosamente.'
+       );
 
        return $this->redirectToRoute('formulario_ver', array('id' => $formulario_id));
     } 
